@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div>
-      this is home
+      Recent Work of mine
     </div>
   </div>
 </template>

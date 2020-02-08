@@ -7,21 +7,16 @@
         :class="initialView === true ? 'initial-view' : 'nav-view'"
         @click="initialView = false"
       >
-        <router-link to="/">Home</router-link> |
-        <router-link to="/code">Code</router-link> |
-        <router-link to="/design">Design</router-link> |
+        <router-link to="/code">Code</router-link> <span>|</span>
+        <router-link to="/design">Design</router-link> <span>|</span>
         <router-link to="/about">About</router-link>
+        <h1 class="welcome-message">Welcome</h1>
       </div>
-      <transition name="fade" mode="out-in">
-      <div :class="initialView ? 'welcome' : 'hidden'">
-        <h4>Display of recent work or code I am working on</h4>
-      </div>
-      </transition>
       <transition 
         name="fade"
         mode="out-in"
       >
-        <router-view :class="initialView ? 'hidden' : ''" />
+        <router-view class="main-view" />
       </transition>
     </div>
   </div>
@@ -39,6 +34,8 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+
 #app {
   position: relative;
   display: flex;
@@ -48,6 +45,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .container {
@@ -66,9 +64,22 @@ export default {
     padding: 30px;
 
     a {
+      font-weight: 400;
+      display: none;
+      height: 0px;
+      margin: 0;
+      opacity: 0;
       font-weight: bold;
       color: #2c3e50;
-      margin: 0 1rem;
+    }
+    span {
+      opacity: 0;
+    }
+    .welcome-message {
+      opacity: 1;
+      height: 50px !important;
+      margin: 12px 0px !important;
+      opacity: 1;
     }
   }
 
@@ -83,13 +94,28 @@ export default {
     // -webkit-transition: width 2s ease-in-out;
     // -moz-transition: width 2s ease-in-out;
     // -o-transition: width 2s ease-in-out;
-    transition: width 2s, margin-top 3s, border-color 3s;
+    transition: width 2s, margin-top 2s, border-color 2s;
 
     a {
+      font-weight: 400 !important;
+      height: 24px;
+      opacity: 1;
       font-weight: bold;
       color: #2c3e50;
       margin: 0 4rem;
-      transition: margin 2s;
+      transition: height 2s, margin 1s, opacity 2s;
+    }
+    span {
+      opacity: 1;
+      transition: margin 1s, opacity 2s;
+    }
+    .welcome-message {
+      opacity: 0;
+      height: 0px !important;
+      margin: 0 !important;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 1s, margin 3s, height 2s;
     }
   }
 }
@@ -100,7 +126,7 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition-duration: 0.3s;
+  transition-duration: .5s;
   transition-property: opacity;
   transition-timing-function: ease;
 }
@@ -111,7 +137,6 @@ export default {
 }
 
 .home {
-  display: flex;
   flex-direction: column;
   justify-content: center;
 }
