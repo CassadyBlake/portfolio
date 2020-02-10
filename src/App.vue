@@ -5,12 +5,16 @@
       <div 
         id="nav"
         :class="initialView === true ? 'initial-view' : 'nav-view'"
-        @click="initialView = false"
       >
         <router-link to="/code">Code</router-link> <span>|</span>
         <router-link to="/design">Design</router-link> <span>|</span>
         <router-link to="/about">About</router-link>
-        <h1 class="welcome-message">Welcome</h1>
+        <div class="welcome-message">
+          <h1>Welcome</h1>
+          <current-work
+            @navigateTo="routeTo"
+          ></current-work>
+        </div>
       </div>
       <transition 
         name="fade"
@@ -22,13 +26,26 @@
   </div>
 </template>
 <script>
+import currentWork from "./components/Current-Work";
+
 export default {
   name: 'app',
   components: {
+    currentWork
   },
   data() {
     return {
       initialView: true
+    }
+  },
+  mounted() {
+    this.$router.push('home');
+  },
+  methods: {
+    routeTo(view, id) {
+      console.log("view, id", view, id);
+      this.initialView = false
+      this.$router.push(view);
     }
   }
 }
@@ -77,9 +94,8 @@ export default {
     }
     .welcome-message {
       opacity: 1;
-      height: 50px !important;
+      height: 300px ;
       margin: 12px 0px !important;
-      opacity: 1;
     }
   }
 

@@ -1,8 +1,5 @@
 <template>
   <div class="home">
-    <div>
-      Recent Work of mine
-    </div>
   </div>
 </template>
 
