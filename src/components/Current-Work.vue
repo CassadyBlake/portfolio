@@ -1,5 +1,5 @@
 <template>
-  <div class="current-work">
+  <div id="current-work">
     <div class="thumbnails">
         <a @click="navigateTo('code','#pomodoro')"><img src="../assets/pomodoro_thumb.jpg" width="200px"></a>
         <a @click="navigateTo('code','#console')"><img src="../assets/console_thumb.jpg" width="200px" ></a>

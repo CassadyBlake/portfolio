@@ -39,7 +39,7 @@ export default {
     }
   },
   mounted() {
-    this.$router.push('home');
+    this.$router.push('/');
   },
   methods: {
     routeTo(view, id) {
