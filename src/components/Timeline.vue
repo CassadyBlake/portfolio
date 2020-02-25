@@ -1,58 +1,56 @@
 <template>
-<div class="container">
-    <div class="layout info">
-        this is where i explain myself... lorem ipsum quatar lorem ipsum quatar lorem ipsum quatar
-        this is where i explain myself... lorem ipsum quatar lorem ipsum quatar lorem ipsum quatar
-        this is where i explain myself... lorem ipsum quatar lorem ipsum quatar lorem ipsum quatar
-        this is where i explain myself... lorem ipsum quatar lorem ipsum quatar lorem ipsum quatar
-        this is where i explain myself... lorem ipsum quatar lorem ipsum quatar lorem ipsum quatar
-        this is where i explain myself... lorem ipsum quatar lorem ipsum quatar lorem ipsum quatar
-    </div>
-    <div class="layout controlls">
-        <div class="btn-box" @click="addEvent">
-            <i class="material-icons">add_circle</i>
-        </div>
-        <div class="btn-box" @click="removeEvent">
-            <i class="material-icons">remove_circle</i>
-        </div>
-    </div>
-    <div class="layout content">
-        <div class="btn-box scroll">
-            <div 
-                v-if="showSideButtons"
-                @mouseover="scrollLeft"
-                @mouseout="clearIntervalScroll"
-            >
-                <i class="material-icons">keyboard_arrow_left</i>
-            </div>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay-left"></div>
-            <div class="overlay-right"></div>
-            <div class="history-box">
-                <div class="line"></div>
-                <ol class="ol-box">
-                <li v-for="(event, index) in currentTimeLineEvents" :key="index">
-                    <p>
-                    <span class="event-type">{{ event.type }}</span>
-                    </p>
-                    <span v-if="event.event_completed" class="point-filled"></span>
-                    <span v-else class="point-empty"></span>
-                </li>
-                <li></li>
-                </ol>
-            </div>
-        </div>
-        <div class="btn-box scroll">
-            <div 
-                v-if="showSideButtons"
-                @mouseover="scrollRight"
-                @mouseout="clearIntervalScroll"
-            >
-                <i class="material-icons">keyboard_arrow_right</i>
-            </div>
-        </div>
-    </div>
+<div class="timeline-box">
+  <div class="layout controlls">
+      <div>
+        <p>Add Event</p>
+      </div>
+      <div class="btn-box" @click="addEvent">
+          <i class="material-icons">add_circle</i>
+      </div>
+      <div>
+        <p>Remove Event</p>
+      </div>
+      <div class="btn-box" @click="removeEvent">
+          <i class="material-icons">remove_circle</i>
+      </div>
+  </div>
+  <div class="layout content">
+      <div class="btn-box scroll">
+          <div 
+              v-if="showSideButtons"
+              @mouseover="scrollLeft"
+              @mouseout="clearIntervalScroll"
+          >
+            <i class="material-icons left-arrow">keyboard_arrow_left</i>
+          </div>
+      </div>
+      <div class="overlay-container">
+          <div class="overlay-left"></div>
+          <div class="overlay-right"></div>
+          <div class="history-box">
+              <div class="line"></div>
+              <ol class="ol-box">
+              <li v-for="(event, index) in currentTimeLineEvents" :key="index">
+                  <p>
+                  <span class="event-type">{{ event.type }}</span>
+                  </p>
+                  <span v-if="event.event_completed" class="point-filled"></span>
+                  <span v-else class="point-empty"></span>
+              </li>
+              <li></li>
+              </ol>
+          </div>
+      </div>
+      <div class="btn-box scroll">
+          <div 
+              v-if="showSideButtons"
+              @mouseover="scrollRight"
+              @mouseout="clearIntervalScroll"
+          >
+              <i class="material-icons">keyboard_arrow_right</i>
+          </div>
+      </div>
+  </div>
 </div>
 </template>
 
@@ -70,13 +68,19 @@ export default {
           { type: 'field', event_completed: true },
           { type: 'tech', event_completed: true },
           { type: 'field', event_completed: false },
-          { type: 'drafting', event_completed: true }
+          { type: 'drafting', event_completed: true },
+          { type: 'tech', event_completed: false },
+          { type: 'tech', event_completed: true },
+          { type: 'field', event_completed: false }
       ],
       timeLineEvents: [
           { type: 'field', event_completed: true },
           { type: 'tech', event_completed: true },
           { type: 'field', event_completed: false },
-          { type: 'drafting', event_completed: true }
+          { type: 'drafting', event_completed: true },
+          { type: 'tech', event_completed: false },
+          { type: 'tech', event_completed: true },
+          { type: 'field', event_completed: false }
       ]
     };
   },
@@ -139,19 +143,20 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+p {
+  margin: 5px 0;
+  font-size: 12px;
+}
 
-
-.container {
-    border: solid 1px rgba(201, 201, 201, 0.50);
-    margin: 0 10rem;
-    min-width: 1200px;
+.timeline-box {
     display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    height: 100%;
 }
 
 .layout {
-    align-items: flex-end;
+    align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
     width: 65%;
@@ -164,13 +169,14 @@ export default {
         overflow-y: scroll;
     }
     &.content {
-        padding: 50px 0;
         min-width: 750px;
+        padding: 20px 0;
     }
     &.controlls {
+        text-align: center;
         display: inline-flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         width: 5%;
         padding: 2rem;
     }
@@ -181,20 +187,27 @@ export default {
     display: inline-flex;
     height: 30px;
     
+    &:hover {
+      cursor: pointer;
+    }
+
     &.scroll {
+        height: fit-content;
         top: 10px;
         margin: 1rem 1rem;
+        align-items: center;
     }
 
     div {
-        width: 25px;
-        height: 25px;
+        width: 28px;
+        height: 28px;
         border-radius: 100px;
         box-shadow: 2px 2px 5px rgb(170, 170, 170); 
     }
 }
 
 .history-box {
+    height: fit-content;
     width: 600px;
     overflow-x: hidden;
     display: inline-flex;
@@ -208,8 +221,10 @@ export default {
     }
 }
 .overlay-container {
+  height: 100%;
   position: relative;
   display: inline-flex;
+
 }
 .overlay-left,
 .overlay-right {
@@ -298,7 +313,7 @@ li {
 }
 
 .material-icons {
-    font-size: 24px;
+    font-size: 28px;
     color: #374f5b;
 }
 </style>
