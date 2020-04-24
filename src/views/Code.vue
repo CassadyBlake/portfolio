@@ -57,8 +57,8 @@ export default {
 <style lang="scss" scoped>
 .container {
   border: solid 1px rgba(201, 201, 201, 0.50);
-  margin: 2rem 10rem;
-  min-width: 1200px;
+  margin: 2rem 2rem;
+  min-width: 800px;
   display: inline-flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -68,7 +68,6 @@ export default {
   align-items: flex-end;
   flex-direction: row;
   flex-wrap: nowrap;
-  width: 65%;
 
   &.info {
     height: 300px;
@@ -79,7 +78,7 @@ export default {
   }
   &.content {
     padding: 50px 0;
-    min-width: 750px;
+    width: 70%;
   }
 }
 </style>

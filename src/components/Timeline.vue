@@ -1,6 +1,6 @@
 <template>
 <div class="timeline-box">
-  <div class="layout controlls">
+  <div class="controls-box">
       <div>
         <p>Add Event</p>
       </div>
@@ -14,7 +14,7 @@
           <i class="material-icons">remove_circle</i>
       </div>
   </div>
-  <div class="layout content">
+  <div class="main-box">
       <div class="btn-box scroll">
           <div 
               v-if="showSideButtons"
@@ -30,14 +30,14 @@
           <div class="history-box">
               <div class="line"></div>
               <ol class="ol-box">
-              <li v-for="(event, index) in currentTimeLineEvents" :key="index">
-                  <p>
-                  <span class="event-type">{{ event.type }}</span>
-                  </p>
-                  <span v-if="event.event_completed" class="point-filled"></span>
-                  <span v-else class="point-empty"></span>
-              </li>
-              <li></li>
+                <li v-for="(event, index) in currentTimeLineEvents" :key="index">
+                    <p>
+                    <span class="event-type">{{ event.type }}</span>
+                    </p>
+                    <span v-if="event.event_completed" class="point-filled"></span>
+                    <span v-else class="point-empty"></span>
+                </li>
+                <li></li>
               </ol>
           </div>
       </div>
@@ -145,7 +145,7 @@ export default {
 <style lang="scss" scoped>
 p {
   margin: 5px 0;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .timeline-box {
@@ -153,13 +153,23 @@ p {
     flex-direction: row;
     flex-wrap: nowrap;
     height: 100%;
+    min-width: 400px;
+    width: 100%;
+
+    .controls-box {
+      width: 20%;
+    }
+    .main-box {
+      width: 80%;
+      overflow: hidden;
+    }
 }
 
 .layout {
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
-    width: 65%;
+    width: 60%;
 
     &.info {
         height: 300px;
@@ -169,8 +179,9 @@ p {
         overflow-y: scroll;
     }
     &.content {
-        min-width: 750px;
+        min-width: 600px;
         padding: 20px 0;
+
     }
     &.controlls {
         text-align: center;
@@ -186,6 +197,7 @@ p {
     position: relative;
     display: inline-flex;
     height: 30px;
+    width: 25px;
     
     &:hover {
       cursor: pointer;
@@ -208,9 +220,9 @@ p {
 
 .history-box {
     height: fit-content;
-    width: 600px;
     overflow-x: hidden;
     display: inline-flex;
+    width: 450px;
 
     .line {
         position: absolute;
@@ -224,6 +236,7 @@ p {
   height: 100%;
   position: relative;
   display: inline-flex;
+  min-width: 350px;
 
 }
 .overlay-left,
