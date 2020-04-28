@@ -26,7 +26,6 @@
       </div>
       <div class="overlay-container">
           <div class="overlay-left"></div>
-          <div class="overlay-right"></div>
           <div class="history-box">
               <div class="line"></div>
               <ol class="ol-box">
@@ -40,6 +39,7 @@
                 <li></li>
               </ol>
           </div>
+          <div class="overlay-right"></div>
       </div>
       <div class="btn-box scroll">
           <div 
@@ -153,15 +153,14 @@ p {
     flex-direction: row;
     flex-wrap: nowrap;
     height: 100%;
-    min-width: 400px;
+    min-width: 500px;
     width: 100%;
 
     .controls-box {
-      width: 20%;
+      width: 100px;
     }
     .main-box {
-      width: 80%;
-      overflow: hidden;
+      flex-wrap: nowrap;
     }
 }
 
@@ -222,7 +221,7 @@ p {
     height: fit-content;
     overflow-x: hidden;
     display: inline-flex;
-    width: 450px;
+    width: 500px;
 
     .line {
         position: absolute;
@@ -236,8 +235,6 @@ p {
   height: 100%;
   position: relative;
   display: inline-flex;
-  min-width: 350px;
-
 }
 .overlay-left,
 .overlay-right {
