@@ -6,8 +6,8 @@
         id="nav"
         :class="initialView === true ? 'initial-view' : 'nav-view'"
       >
-        <router-link to="code">Code</router-link> <div class="divider"></div>
-        <router-link to="design">Design</router-link> <div class="divider"></div>
+        <router-link to="code">Code</router-link> 
+        <router-link to="design">Design</router-link> 
         <router-link to="about">About</router-link>
       </div>
       <div :class="initialView === true ? 'welcome show' : 'welcome hide'">
@@ -68,11 +68,12 @@ export default {
 
 html {
   overflow-y: scroll;
+  height: 100%;
 }
 
 body {
   margin: 0 !important;
-  overflow-y: auto;
+  height: 100%;
 }
 
 #app {
@@ -83,9 +84,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #3f3f37;
   font-family: 'Noto Sans', sans-serif;
-  
+  overflow-x: hidden;
 }
 
 
@@ -94,40 +95,45 @@ body {
   width: 100%;
   position: static;
   display: inline-flex;
-  background-color: slategray;
-  color: white;
+  background-color: #daf0ee;
+  color: #3f3f37;
   z-index: 2;
   overflow: hidden;
 
   a {
     padding: 0;
-    color: white;
+    color: #3f3f37;
     text-decoration: none;
 
     &:hover {
-      text-shadow: white 1px 0 5px;
+      text-shadow: #fff 1px 0 5px;
+      background-color: #e0f7f5;
     }
     &.router-link-active {
-      color: rgb(227, 244, 255)
+      color: #3f3f37;
+      background-color: #e0f7f5;
+      border-radius: 2px;
     }
   }
 
   .divider {
     margin: .75rem 0;
     width: 1px;
-    background-color: white;
+    background-color: none;
   }
 }
 
 .initial-view {
   height: 0px;
   opacity: 0;
+  border-bottom: solid 0px #3f3f37;
 }
 
 .nav-view {
   height: 55px;
-  transition: opacity 1s, height 2s;
+  transition: opacity 1s, height 2s, border-bottom 1s;
   transition-delay: 2s;
+  border-bottom: solid 5px #3f3f37;
 
   a {
     padding: 1rem 2rem !important;
@@ -136,16 +142,16 @@ body {
 
 .welcome {
   width: 100%;
-  background: slategray;
+  background: #daf0ee;
   display: flex;
   flex-direction: column;
   align-items: center;
   white-space: nowrap;
-  color: white;
+  color: #3f3f37;
 
   &.show {
     // opacity: 1;
-    margin-top: 20%;
+    margin-top: 10%;
     height: 400px;
     overflow: hidden;
   }
@@ -159,17 +165,19 @@ body {
 
     .bottom-overlay {
       height: 0px;
-      transition: height 1s;
+      transition: height 1s, border-bottom 1s;
       transition-delay: 2s;
+      border-bottom: solid 5px transparent;
     }
   }
 
   .bottom-overlay {
     position: absolute;
     bottom: 0;
-    height: 100px;
+    height: 50px;
     width: 100%;
-    background: linear-gradient(rgba(112, 128, 144, 0), rgb(112, 128, 144), rgb(112, 128, 144));
+    background: linear-gradient(#daf0ee00, #daf0ee, #daf0ee);
+    border-bottom: solid 5px #3f3f37;
     z-index: 1;
   }
 }
@@ -182,15 +190,24 @@ button {
   height: 55px;
   line-height: 50px;
   justify-items: center;
-  border: solid 3px white;
+  border: solid 3px #3f3f37;
   font-size: 16px;
-  color: white;
+  color: #3f3f37;
   background: none;
   outline: none;
 
+  &.dark {
+    border: solid 3px #daf0ee !important;
+    color: #daf0ee !important;
+  
+    &:hover {
+      background-color: #4d4d43;
+    }
+  }
+
   &:hover {
     cursor: pointer;
-    background-color: rgb(136, 157, 179);
+    background-color: #c2d6d5;
   }
 
   .material-icons {
@@ -198,89 +215,23 @@ button {
   }
 }
 
-// .container {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   overflow: hidden;
 
-//   .initial-view {
-//     justify-content: space-between;
-//     align-self: center;
-//     margin-top: 200px;
-//     border-color: rgb(240, 240, 240);
-//     border-style: solid;
-//     border-width: 1px;
-//     padding: 30px;
-
-//     a {
-//       font-weight: 400;
-//       display: none;
-//       height: 0px;
-//       margin: 0;
-//       opacity: 0;
-//       font-weight: bold;
-//       color: #2c3e50;
-//     }
-//     span {
-//       opacity: 0;
-//     }
-//     .welcome-message {
-//       opacity: 1;
-//       height: 300px ;
-//       margin: 12px 0px !important;
-//     }
-//   }
-
-//   .nav-view {
-//     text-align: start;
-//     justify-content: space-between;
-//     align-self: center;
-//     margin-top: 0;
-//     height: inherit;
-//     width: 100%;
-//     padding: 30px 0px;
-//     margin: 0px 30px;
-//     border-bottom: solid 1px rgb(240, 240, 240);
-//     // -webkit-transition: width 2s ease-in-out;
-//     // -moz-transition: width 2s ease-in-out;
-//     // -o-transition: width 2s ease-in-out;
-//     transition: width 2s, margin-top 2s, border-color 2s;
-
-//     a {
-//       font-weight: 400 !important;
-//       height: 24px;
-//       opacity: 1;
-//       font-weight: bold;
-//       color: #2c3e50;
-//       margin: 0 4rem;
-//       transition: height 2s, margin 1s, opacity 2s;
-//     }
-//     span {
-//       opacity: 1;
-//       transition: margin 1s, opacity 2s;
-//     }
-//     .welcome-message {
-//       opacity: 0;
-//       height: 0px !important;
-//       margin: 0 !important;
-//       overflow: hidden;
-//       opacity: 0;
-//       transition: opacity 1s, margin 3s, height 2s;
-//     }
-//   }
-// }
-
-// #nav a.router-link-exact-active {
-//   color: #42b983;
-// }
-
-// .fade-enter-active,
-// .fade-leave-active {
-//   transition-duration: .5s;
-//   transition-property: opacity;
-//   transition-timing-function: ease;
-// }
+.slide-enter-active {
+  transition: all .3s;
+}
+.slide-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-enter
+/* .slide-leave-active below version 2.1.8 */ {
+  transform: translateX(100%);
+  // opacity: 0;
+}
+.slide-leave-to
+/* .slide-leave-active below version 2.1.8 */ {
+  transform: translateX(-100%);
+  // opacity: 0;
+}
 
 // .fade-enter,
 // .fade-leave-active {

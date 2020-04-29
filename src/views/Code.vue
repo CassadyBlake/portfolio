@@ -4,7 +4,7 @@
       <div class="info-box">
           <h3>Timeline Component</h3>
           <p>I was asked to create a timeline component in order to display particular events related to a surveying job. It needed to display them in order based first on the completion of the event and second on the date created or completed. I enjoyed working out the gradient overlay for the events to disapear into when the timeline is scrolled and the scroll buttons showing or not based on the length of the timeline.</p>
-          <button @click="openRoute('https://codepen.io/cassadyblake/pen/oNjWvZV')">Info</button>
+          <button class="dark" @click="openRoute('https://codepen.io/cassadyblake/pen/oNjWvZV')">Info</button>
       </div>
       <div class="content-box">
         <img src="../assets/images/timeline_img.jpg" />
@@ -16,7 +16,7 @@
         <p>
           An application created using React for time management. Implimenting the Pomodoro methode, the application tracks a full work-day being split into 25 minute segments with 5 minute breaks in between, and a 30 minute break in the middle. Dealing with time is always tricky and I enjoyed the challenge of logging each 25 minute session and triggering the breaks. The clock was great practice for manipulating css properties with rotation and triangular shapes.
         </p>
-        <button @click="openRoute('https://cassadyb.com/pomodoro')">Info</button>
+        <button class="dark" @click="openRoute('https://cassadyb.com/pomodoro')">Info</button>
       </div>
       <div class="content-box">
           <img src="../assets/images/pomodoro_img.jpg" />
@@ -82,7 +82,8 @@ export default {
 
   .info-box {
     opacity: 0;
-    background-color: rgb(161, 161, 161);
+    background-color: #3f3f37;
+    color: #daf0ee;
     position:absolute;
     top: 0;
     padding: 0 1rem;
@@ -94,7 +95,7 @@ export default {
     }
   }
   .content-box {
-
+    height: 350px;
     img {
       width: 350px;
     }
@@ -103,7 +104,7 @@ export default {
   &:hover {
 
     .info-box {
-      opacity: .9;
+      opacity: .95;
       transition: opacity .5s ease-in-out;
     }
   }
