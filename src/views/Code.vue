@@ -124,28 +124,27 @@ export default {
   overflow: hidden;
   text-align: left;
 
-  .title {
-    color: $opal;
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 5px 5px white;
-    z-index: 101;
-  }
-  .title::after {
-    content: "";
-    background-color: $opal;
-    height: 1px;
-    width: 100%;
-    position: absolute;
-    right: 0;
-    top: 1.75rem;
-  }
+  // .title {
+  //   color: $opal;
+  //   font-size: 24px;
+  //   font-weight: bold;
+  //   text-shadow: 5px 5px white;
+  //   z-index: 101;
+  // }
+  // .title::after {
+  //   content: "";
+  //   background-color: $opal;
+  //   height: 1px;
+  //   width: 100%;
+  //   position: absolute;
+  //   right: 0;
+  //   top: 1.75rem;
+  // }
   
   .info-box {
     color: $black-olive;
-    background: radial-gradient($baby-powder, $baby-powder-darken);
+    background: rgba(249, 252, 247, 0.90);
     position:absolute;
-    top: 0;
     padding: 0 1rem;
     height: 100%;
     transition: all 1s ease-in-out;
@@ -168,7 +167,7 @@ export default {
   }
   .content-box {
     // height: 260px;
-    background: linear-gradient(45deg, $baby-powder-darken, $baby-powder-darken 50%, $baby-powder 30%, $baby-powder-darken 60%);
+    // background: linear-gradient(45deg, $baby-powder-darken, $baby-powder-darken 50%, $baby-powder 30%, $baby-powder-darken 60%);
 
     img {
       // opacity:1;
@@ -180,7 +179,7 @@ export default {
   &:hover {
 
     .info-box {
-      opacity: .95;
+      opacity: 1;
       // transform: translateX(0);
       transition: all .5s ease-in-out;
     }
