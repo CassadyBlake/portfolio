@@ -29,7 +29,7 @@
       <div class="info-box">
         <h3>Pomodoro App</h3>
         <p>
-          An application created using React for time management. Implimenting the Pomodoro methode, the application tracks a full work-day being split into 25 minute segments with 5 minute breaks in between, and a 30 minute break in the middle. Dealing with time is always tricky and I enjoyed the challenge of logging each 25 minute session and triggering the breaks. The clock was great practice for manipulating css properties with rotation and triangular shapes.
+          An application created using React for time management. Implimenting the Pomodoro Technique, the application tracks a full work-day being split into 25 minute segments with 5 minute breaks in between, and a 30 minute break in the middle. Dealing with time is always tricky and I enjoyed the challenge of logging each 25 minute session and triggering the breaks. The clock was great practice for manipulating css properties with rotation and triangular shapes.
         </p>
         <p class="tools">( React, SCSS, Firebase )</p>
         <button class="" @click="openRoute('https://cassadyb.com/pomodoro')">VIEW <i class="material-icons small">launch</i></button>
