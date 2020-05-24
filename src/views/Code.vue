@@ -18,7 +18,7 @@
           An inward facing data storage and employee management app developed for a land/site surveying company. The UI was built using Vue.js and Vuetify, connected to the backend with Apollo and GraphQL and state was managed through Vuex. I was in charge of creating and updating the UI, working closely with the senior developer who was creating the backend to coordinate GraphQL code and a UX designer for layout and flow. My work included creating a calendar component for users to log vacation requests, clock in/out and store payroll, a dashboard view displaying multiple components based on the users position, a system for warning dialogs, as well as many forms, lists, modals and general work flows. I enjoyed working from the ground up to create an effective UI with consistent and clean code and workflow behind it. I liked the usability of the Vuetify UI framework and was able to easily manipulate it to customize certain elements using CSS, specifically SCSS.
         </p> -->
         <p class="tools">( Vue, Vuex, Vuetify, SCSS, GraphQL, Apollo )</p>
-        <button class="" @click="openDetails('prism')">DETAILS <i class="material-icons small">launch</i></button>
+        <button class="icon" @click="openDetails('prism')">DETAILS <i class="material-icons">launch</i></button>
       </div>
       <div class="content-box">
           <img src="../assets/images/prism_img.png" />
@@ -32,7 +32,7 @@
           An application created using React for time management. Implimenting the Pomodoro Technique, the application tracks a full work-day being split into 25 minute segments with 5 minute breaks in between, and a 30 minute break in the middle. Dealing with time is always tricky and I enjoyed the challenge of logging each 25 minute session and triggering the breaks. The clock was great practice for manipulating css properties with rotation and triangular shapes.
         </p>
         <p class="tools">( React, SCSS, Firebase )</p>
-        <button class="" @click="openRoute('https://cassadyb.com/pomodoro')">VIEW <i class="material-icons small">launch</i></button>
+        <button class="icon" @click="openRoute('https://cassadyb.com/pomodoro')">VIEW <i class="material-icons">launch</i></button>
       </div>
       <div class="content-box">
           <img src="../assets/images/pomodoro_img.png" />
@@ -46,7 +46,7 @@
           An application that displays the current weather conditions for a selected city, built using only 'vanilla' javascript. An excercise in working without a library or framework, this was a great challenge and reminder of how javascript functions within those systems.
         </p>
         <p class="tools">( Javascript, Async Functions, API )</p>
-        <button class="" @click="openRoute('https://cassadyb.com/weather')">VIEW <i class="material-icons small">launch</i></button>
+        <button class="icon" @click="openRoute('https://cassadyb.com/weather')">VIEW <i class="material-icons">launch</i></button>
       </div>
       <div class="content-box">
         <img src="../assets/images/weather_img.png" />
@@ -58,7 +58,7 @@
           <h3>Timeline Component</h3>
           <p>I was asked to create a timeline component in order to display particular events related to a surveying job. It needed to display them in order based first on the completion of the event and second on the date created or completed. I enjoyed working out the gradient overlay for the events to disapear into when the timeline is scrolled and the scroll buttons showing or not based on the length of the timeline.</p>
           <p class="tools">( Vue.js, CSS, SCSS )</p>
-          <button class="" @click="openRoute('https://codepen.io/cassadyblake/pen/oNjWvZV')">VIEW <i class="material-icons small">launch</i></button>
+          <button class="icon" @click="openRoute('https://codepen.io/cassadyblake/pen/oNjWvZV')">VIEW <i class="material-icons">launch</i></button>
       </div>
       <div class="content-box">
         <img src="../assets/images/timeline_img.png" />

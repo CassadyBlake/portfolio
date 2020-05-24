@@ -11,11 +11,23 @@
         <router-link to="about">About</router-link>
       </div>
       <div :class="initialView === true ? 'welcome show' : 'welcome hide'">
-        <div class="title-1">CASSADY</div>
+        <div class="title-row no-wrap title-1">
+          <div>C</div><div>A</div><div>S</div><div>S</div><div>A</div><div>D</div><div>Y</div>
+        </div>
+         <div class="title-row no-wrap title-2">
+          <div>L</div><div>I</div><div>L</div><div>L</div><div>S</div><div>T</div><div>R</div><div>O</div><div>M</div>
+        </div>
+         <div class="title-row no-wrap title-3">
+          <div>D</div><div>E</div><div>V</div><div>E</div><div>L</div><div>O</div><div>P</div><div>E</div><div>R</div><div>/</div><div>D</div><div>E</div><div>S</div><div>I</div><div>G</div><div>N</div><div>E</div><div>R</div>
+        </div>
+         <div class="title-row no-wrap title-4">
+          <div>M</div><div>O</div><div>T</div><div>I</div><div>O</div><div>N</div><div> </div><div>S</div><div>I</div><div>M</div><div>P</div><div>L</div><div>I</div><div>C</div><div>I</div><div>T</div><div>Y</div><div> </div><div>F</div><div>E</div><div>E</div><div>L</div>
+        </div>
+        <!-- <div class="title-1">CASSADY</div>
         <div class="title-2">LILLSTROM</div>
         <div class="title-3">WEB-DEVELOPER / DESIGNER</div>
-        <div class="title-4">MOTION SIMPLICITY FEEL</div>
-        <button @click="openSite">
+        <div class="title-4">MOTION SIMPLICITY FEEL</div> -->
+        <button @click="openSite" class="icon">
           See My Work <i class="material-icons">forward</i>
         </button>
         <!-- <div class="gradient1"></div> -->
@@ -98,6 +110,81 @@ body {
 }
 
 
+// LAYOUT ___________________________________
+
+.no-wrap {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.title-row {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+
+  &.title-1 { 
+    margin-top: 20px;
+    font-weight: 900;
+    font-size: 4rem;
+    z-index: 1;
+  }
+  &.title-2 {
+    font-weight: 300;
+    font-size: 4rem;
+    margin-top: -20px;
+    z-index: 1;
+  }
+  &.title-3 {
+    font-weight: 900;
+    font-size: 1.1rem;
+    margin-top: -5px;
+    z-index: 1;
+  }
+  &.title-4 {
+    font-weight: 400;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    z-index: 1;
+  }
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+  .title-row {
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    justify-content: space-between;
+
+    &.title-1 { 
+      margin-top: 20px;
+      font-weight: 900;
+      font-size: 6rem;
+      z-index: 1;
+    }
+    &.title-2 {
+      font-weight: 300;
+      font-size: 6rem;
+      margin-top: -20px;
+      z-index: 1;
+    }
+    &.title-3 {
+      font-weight: 900;
+      font-size: 2rem;
+      margin-top: -5px;
+      z-index: 1;
+    }
+    &.title-4 {
+      font-weight: 400;
+      font-size: 2rem;
+      margin-top: 10px;
+      z-index: 1;
+    }
+  }
+}
+
+
 
 #nav {
   width: 100%;
@@ -150,39 +237,6 @@ body {
   white-space: nowrap;
   color: $baby-powder;
   overflow: hidden;
-
-  .title-1 { 
-    margin-top: 20px;
-    font-weight: 900;
-    font-size: 4rem;
-    width: 450px;
-    letter-spacing: 1.35rem;
-    z-index: 1;
-  }
-  .title-2 {
-    font-weight: 300;
-    font-size: 4rem;
-    width: 450px;
-    letter-spacing: .8rem;
-    margin-top: -20px;
-    z-index: 1;
-  }
-  .title-3 {
-    font-weight: 900;
-    font-size: 1.1rem;
-    width: 450px;
-    letter-spacing: .45rem;
-    margin-top: -5px;
-    z-index: 1;
-  }
-  .title-4 {
-    font-weight: 400;
-    font-size: 1.1rem;
-    width: 450px;
-    letter-spacing: .63rem;
-    margin-top: 10px;
-    z-index: 1;
-  }
 
   button {
     bottom: -30px;
@@ -239,18 +293,22 @@ body {
 }
 
 button {
-  position: relative;
-  display: inline-flex;
-  padding: 0 1rem;
-  line-height: 50px;
-  justify-items: center;
-  border: solid 1px $opal;
+  border-color: $opal;
   box-shadow: 2px 2px 10px $black-olive;
-  font-size: 16px;
   color: $opal;
   background: $black-olive;
-  outline: none;
   z-index: 1;
+
+  &.icon {
+    justify-items: center;
+    display: inline-flex;
+
+    .material-icons {
+      font-size: 20px;
+      margin-left: 1rem;
+      line-height: 36px;
+    }
+  }
 
   &.circle {
     border-radius: 100%;
@@ -271,22 +329,16 @@ button {
     color: $baby-powder;
   
     &:hover {
-      background-color: transparentize($color: $baby-powder, $amount: .8);
+      // background-color: transparentize($color: $baby-powder, $amount: .2) !important;
+      background-color: $baby-powder;
+    
     }
   }
 
   &:hover {
-    cursor: pointer;
+    // cursor: pointer;
     background-color: transparentize($color: $black-olive, $amount: .3);
-  }
-
-  .material-icons {
-    line-height: 50px;
-    margin-left: 1rem;
-
-    &.small {
-      font-size: 18px;
-    }
+    background-color: $baby-powder;
   }
 }
 
@@ -309,42 +361,5 @@ button {
   transform: translateY(-100%);
   opacity: 0;
   overflow: hidden;
-}
-
-.column-1 {
-  width: 8.3%
-}
-.column-2 {
-  width: 16.6%
-}
-.column-3 {
-  width: 24.9%
-}
-.column-4 {
-  width: 33.3%
-}
-.column-5 {
-  width: 41.6%
-}
-.column-6 {
-  width: 49.9%
-}
-.column-7 {
-  width: 58.3%
-}
-.column-8 {
-  width: 66.6%
-}
-.column-9 {
-  width: 74.9%
-}
-.column-10 {
-  width: 83.3%
-}
-.column-11 {
-  width: 91.6%
-}
-.column-12 {
-  width: 100%
 }
 </style>
