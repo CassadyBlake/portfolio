@@ -23,45 +23,23 @@
          <div class="title-row no-wrap title-4">
           <div>M</div><div>O</div><div>T</div><div>I</div><div>O</div><div>N</div><div> </div><div>S</div><div>I</div><div>M</div><div>P</div><div>L</div><div>I</div><div>C</div><div>I</div><div>T</div><div>Y</div><div> </div><div>F</div><div>E</div><div>E</div><div>L</div>
         </div>
-        <!-- <div class="title-1">CASSADY</div>
-        <div class="title-2">LILLSTROM</div>
-        <div class="title-3">WEB-DEVELOPER / DESIGNER</div>
-        <div class="title-4">MOTION SIMPLICITY FEEL</div> -->
-        <button @click="openSite" class="icon">
+        <button @click="openSite" class="icon dark">
           See My Work <i class="material-icons">forward</i>
         </button>
-        <!-- <div class="gradient1"></div> -->
-        <!-- <div class="gradient2"></div> -->
-        <!-- <div class="bottom-overlay"></div> -->
       </div>
-      <!-- <div class="main-container">
-        <about-view />
-        <code-view />
-        <design-view />
-      </div> -->
-      <!-- <div class="main-container"> -->
       <transition 
         name="expand"
         mode="out-in"
       >
-        <router-view class="main-view" />
+        <router-view />
       </transition>
-      <!-- </div> -->
     </div>
-  <!-- </div> -->
 </template>
 <script>
-// import currentWork from "./components/Current-Work";
-// import codeView from "./views/Code"
-// import designView from "./views/Design"
-// import aboutView from "./views/About"
 
 export default {
   name: 'app',
   components: {
-    // codeView,
-    // designView,
-    // aboutView
   },
   data() {
     return {
@@ -86,6 +64,9 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
 @import './style/colors.scss';
 
+
+// LAYOUT ___________________________________
+
 html {
   height: 100%;
 }
@@ -107,14 +88,6 @@ body {
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-}
-
-
-// LAYOUT ___________________________________
-
-.no-wrap {
-  flex-wrap: nowrap;
-  white-space: nowrap;
 }
 
 .title-row {
@@ -184,8 +157,6 @@ body {
   }
 }
 
-
-
 #nav {
   width: 100%;
   position: absolute;
@@ -228,6 +199,67 @@ body {
   }
 }
 
+button {
+  // border-color: $black-olive;
+  box-shadow: 1px 1px 4px $black-olive;
+  color: $baby-powder;
+  background: $opal;
+  z-index: 1;
+
+  &.icon {
+    justify-items: center;
+    display: inline-flex;
+
+    .material-icons {
+      font-size: 20px;
+      margin-left: 1rem;
+      line-height: 36px;
+    }
+  }
+
+  &.circle {
+    border-radius: 100%;
+    padding: 1.1rem 0 0 0 !important;
+    height: 50px;
+    width: 50px;
+    margin-bottom: 0;
+    justify-content: center;
+
+    .material-icons {
+      margin-left: 0;
+    }
+  } 
+
+  &.flat {
+    box-shadow: none;
+  }
+
+  &.dark {
+    background: $black-olive;
+    color: $opal;
+  
+    &:hover {
+      // background-color: transparentize($color: $baby-powder, $amount: .2) !important;
+      color: $black-olive;
+      background-color: $baby-powder;
+    }
+  }
+
+  &:hover {
+    // cursor: pointer;
+    // background-color: transparentize($color: $black-olive, $amount: .3);
+    background-color: $baby-powder;
+  }
+}
+
+
+// HELPERS ____________________________
+.no-wrap {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+// SPECIFIC CONTAINERS ___________________________
 .welcome {
   width: 100%;
   background: linear-gradient(45deg, $opal, $opal 50%, rgb(148, 182, 175) 30%, $opal 60%);
@@ -239,7 +271,7 @@ body {
   overflow: hidden;
 
   button {
-    bottom: -30px;
+    margin-top: 3rem;
   }
 
   &.show {
@@ -277,6 +309,7 @@ body {
   }
 }
 
+// ANIMATIONS/TRANSITIONS __________________________
 @keyframes circle {
   from {
     left: -200%;
@@ -291,57 +324,6 @@ body {
     left: -200%;
   }
 }
-
-button {
-  border-color: $opal;
-  box-shadow: 2px 2px 10px $black-olive;
-  color: $opal;
-  background: $black-olive;
-  z-index: 1;
-
-  &.icon {
-    justify-items: center;
-    display: inline-flex;
-
-    .material-icons {
-      font-size: 20px;
-      margin-left: 1rem;
-      line-height: 36px;
-    }
-  }
-
-  &.circle {
-    border-radius: 100%;
-    padding: 0 !important;
-    height: 50px;
-    width: 50px;
-    justify-content: center;
-
-    .material-icons {
-      margin-left: 0;
-    }
-  } 
-
-  &.flat {
-    border: none;
-    background: none;
-    box-shadow: none;
-    color: $baby-powder;
-  
-    &:hover {
-      // background-color: transparentize($color: $baby-powder, $amount: .2) !important;
-      background-color: $baby-powder;
-    
-    }
-  }
-
-  &:hover {
-    // cursor: pointer;
-    background-color: transparentize($color: $black-olive, $amount: .3);
-    background-color: $baby-powder;
-  }
-}
-
 
 .expand-enter-active {
   transition: all .5s ease-in;

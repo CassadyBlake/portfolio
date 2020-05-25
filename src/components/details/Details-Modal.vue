@@ -1,5 +1,4 @@
 <template>
-
     <div v-show="visible">
         <div class="overlay-blur"></div>
         <transition name="size" mode="in-out">
@@ -7,7 +6,9 @@
                 <div class="modal-toolbar">
                     <button class="circle close flat" @click="close()"><i class="material-icons">close</i></button>
                 </div>
-                <prism-details />
+                <prism-details
+                    class="details-content"
+                />
             </div>
         </transition>
     </div>
@@ -57,26 +58,40 @@ export default {
         z-index: 99;
     }
     .details-card {
+        height: 90%;
         transform: scale(1);
         opacity: 1;
-        position: absolute;
-        justify-self: center;
-        left: 5rem;
-        right: 5rem;
+        position: fixed;
         z-index: 100;
-        box-shadow: 5px 5px 10px black;
+        box-shadow: 5px 5px 10px $black-olive;
         background: white;
-        backdrop-filter: blur(2px);
+        overflow-y: hidden;
     }
+
+    /* Larger than tablet */
+    @media (min-width: 750px) {
+        .details-card {
+            left: 10rem;
+            right: 10rem;
+        }
+    }
+
     .modal-toolbar {
         width: 100%;
-        padding: .2rem 0;
+        padding: 1rem 0;
         background: $opal;
         font-weight: bold;
         font-size: 2rem;
         text-align: right;
     }
+
+    .details-content {
+        height: 100%;
+        overflow-y: scroll;
+    }
+
     .close {
+        border: none;
         position: relative;
         right: 1rem;
     }

@@ -1,10 +1,10 @@
 <template>
-    <div class="prism-details">
-        <div class="column-3 info">
+    <div class="row">
+        <div class="one-third column info">
             <h2>Prism</h2>
             An inward facing data storage and employee management app developed for a land/site surveying company. The UI was built using Vue.js and Vuetify, connected to the backend with Apollo and GraphQL and state was managed through Vuex. I was in charge of creating and updating the UI, working closely with the senior developer who was creating the backend to coordinate GraphQL code and a UX designer for layout and flow. My work included creating a calendar component for users to log vacation requests, clock in/out and store payroll, a dashboard view displaying multiple components based on the users position, a system for warning dialogs, as well as many forms, lists, modals and general work flows. I enjoyed working from the ground up to create an effective UI with consistent and clean code and workflow behind it. I liked the usability of the Vuetify UI framework and was able to easily manipulate it to customize certain elements using CSS, specifically SCSS.
         </div>
-        <div class="column-9 images">
+        <div class="two-thirds column images">
             <img src="../../assets/images/prism_img_1.png" />
             <img src="../../assets/images/prism_img_2.png" />
             <img src="../../assets/images/prism_img_3.png" />
@@ -33,12 +33,11 @@ export default {
             text-align: center;
         }
     }
-    .prism-details {
-        display:flex;
-        flex-direction: row;
-
+    .images {
+        margin-left: 0;
+        padding: 1rem;
         img {
-            max-width: 800px;
+            width: 100%;
             border: solid 1px $black-olive;
             margin: .5rem;
         }
