@@ -78,27 +78,19 @@ export default {
   h5 {
     margin-top: 8rem;
   }
-  @media (min-width: 550px) {
-    img {
-      max-width: 300px;
-    }
-    .packaging {
-      img {
-        max-width: 450px;
-      }
-    }
-  }
+
   img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     margin-bottom: 2rem;
   }
+
   .image-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    
+    align-items: flex-start;
   }
 }
 

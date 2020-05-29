@@ -15,21 +15,24 @@
         <router-link to="design">Design</router-link> 
       </div>
       <div :class="initialView === true ? 'welcome show' : 'welcome hide'">
-        <div class="title-row no-wrap title-1">
-          <div>C</div><div>A</div><div>S</div><div>S</div><div>A</div><div>D</div><div>Y</div>
-        </div>
-         <div class="title-row no-wrap title-2">
-          <div>L</div><div>I</div><div>L</div><div>L</div><div>S</div><div>T</div><div>R</div><div>O</div><div>M</div>
-        </div>
-         <div class="title-row no-wrap title-3">
-          <div>D</div><div>E</div><div>V</div><div>E</div><div>L</div><div>O</div><div>P</div><div>E</div><div>R</div><div>/</div><div>D</div><div>E</div><div>S</div><div>I</div><div>G</div><div>N</div><div>E</div><div>R</div>
-        </div>
-         <div class="title-row no-wrap title-4">
-          <div>M</div><div>O</div><div>T</div><div>I</div><div>O</div><div>N</div><div> </div><div>S</div><div>I</div><div>M</div><div>P</div><div>L</div><div>I</div><div>C</div><div>I</div><div>T</div><div>Y</div><div> </div><div>F</div><div>E</div><div>E</div><div>L</div>
-        </div>
+        <div class="title-box">
+          <div class="title-row no-wrap title-1">
+            <div>C</div><div>A</div><div>S</div><div>S</div><div>A</div><div>D</div><div>Y</div>
+          </div>
+          <div class="title-row no-wrap title-2">
+            <div>L</div><div>I</div><div>L</div><div>L</div><div>S</div><div>T</div><div>R</div><div>O</div><div>M</div>
+          </div>
+          <div class="title-row no-wrap title-3">
+            <div>D</div><div>E</div><div>V</div><div>E</div><div>L</div><div>O</div><div>P</div><div>E</div><div>R</div><div>/</div><div>D</div><div>E</div><div>S</div><div>I</div><div>G</div><div>N</div><div>E</div><div>R</div>
+          </div>
+          <div class="title-row no-wrap title-4">
+            <div>M</div><div>O</div><div>T</div><div>I</div><div>O</div><div>N</div><div> </div><div>S</div><div>I</div><div>M</div><div>P</div><div>L</div><div>I</div><div>C</div><div>I</div><div>T</div><div>Y</div><div> </div><div>F</div><div>E</div><div>E</div><div>L</div>
+          </div>
         <button @click="openSite" class="icon">
           See More <i class="material-icons">forward</i>
         </button>
+
+        </div>
       </div>
       <transition 
         name="expand"
@@ -102,11 +105,18 @@ body {
   transition: opacity 1s;
 }
 
+.title-box {
+  display: inline-block;
+  width: 90%;
+}
+
 .title-row {
+  position: relative;
   display: flex;
   flex-direction: row;
-  width: 90%;
+  width: 100%;
   justify-content: space-between;
+  align-content: flex-start;
 
   &.title-1 { 
     margin-top: 20px;
@@ -136,10 +146,13 @@ body {
 
 /* Larger than tablet */
 @media (min-width: 750px) {
+  .title-box {
+    width: 50%;
+  }
   .title-row {
     display: flex;
     flex-direction: row;
-    width: 40%;
+    width: 100%;
     justify-content: space-between;
 
     &.title-1 { 
@@ -323,12 +336,9 @@ a:hover {
 .welcome {
   width: 100%;
   background: linear-gradient(45deg, $opal, $opal 50%, rgb(148, 182, 175) 30%, $opal 60%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  white-space: nowrap;
   color: $baby-powder;
   overflow: hidden;
+  text-align: center;
 
   button {
     margin-top: 3rem;
@@ -338,6 +348,7 @@ a:hover {
     height: 100%;
     padding-top: 10%;
     overflow: hidden;
+    text-align: center;
   }
 
   &.hide {
@@ -346,26 +357,6 @@ a:hover {
     overflow: hidden;
     border-top: solid 3px transparent;
     transition: height 1s, opacity 1s, padding-top 1s;
-  }
-
-  .gradient1 {
-    position: absolute;
-    transform: rotate(45deg);
-    width: 1200px;
-    height: 1200px;
-    box-shadow: 0 0 100px $opal-darken;
-    z-index: 0;
-    // animation: 5s infinite circle;
-    margin-left: 25%;
-    margin-bottom: 25%;
-  }
-  .gradient2 {
-    position: absolute;
-    background: radial-gradient(elipse at 50%, $opal-darken, rgba(160, 193, 185, 0));
-    width: 2000px;
-    height: 2000px;
-    z-index: 0;
-    animation: 5s infinite circle;
   }
 }
 
