@@ -38,9 +38,9 @@ export default {
   },
   data() {
     return {
-      graphicImages: ['.././images/shirt-SB-2.png','.././images/shirt-GY-2.png','.././images/shirt-SW-2.png','.././images/shirt-FS-1.png','.././images/shirt-SW-9.png','.././images/shirt-SW-10.png','.././images/shirt-SW-5.png','.././images/shirt-LX-1.png','.././images/shirt-MB-1.png','.././images/shirt-RW-1.png','.././images/shirt-SB-1.png','.././images/shirt-SW-7.png',],
-      posterImages: ['.././images/posters-PW-1.jpg','.././images/posters-PW-3.jpg'],
-      packagingImages: ['.././images/Projects-Pickwick-Myths-EP.jpg','.././images/Projects-Pickwick-Myths-Vol1.jpg','.././images/Projects-Pickwick-Myths-Vol2.jpg','.././images/Projects-Pickwick-Myths-Vol3.jpg','.././images/Projects-Pickwick-CDE-Split.jpg']
+      graphicImages: ['../assets/designs/shirt-SB-2.png','../assets/designs/shirt-GY-2.png','../assets/designs/shirt-SW-2.png','../assets/designs/shirt-FS-1.png','../assets/designs/shirt-SW-9.png','../assets/designs/shirt-SW-10.png','../assets/designs/shirt-SW-5.png','../assets/designs/shirt-LX-1.png','../assets/designs/shirt-MB-1.png','../assets/designs/shirt-RW-1.png','../assets/designs/shirt-SB-1.png','../assets/designs/shirt-SW-7.png',],
+      posterImages: ['../assets/designs/posters-PW-1.jpg','../assets/designs/posters-PW-3.jpg'],
+      packagingImages: ['../assets/designs/Projects-Pickwick-Myths-EP.jpg','../assets/designs/Projects-Pickwick-Myths-Vol1.jpg','../assets/designs/Projects-Pickwick-Myths-Vol2.jpg','../assets/designs/Projects-Pickwick-Myths-Vol3.jpg','../assets/designs/Projects-Pickwick-CDE-Split.jpg']
     }
   },
   methods: {
