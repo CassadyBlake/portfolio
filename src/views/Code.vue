@@ -89,7 +89,6 @@ export default {
   methods: {
     openDetails(projectName) {
       this.selectedProject = this.projects.find( project => projectName === project.name)
-      console.log("selected:", this.selectedProject)
       this.showDetailsModal = true
     },
     openRoute(destination) {
