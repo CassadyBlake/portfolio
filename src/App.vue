@@ -1,14 +1,18 @@
 <template>
-  <div id="app">
+  <div id="app" >
+    <transition mode="in-out" name="fade">
+      <div class="overlay-blur" v-show="getBlurBackground"></div>
+    </transition>
     <!-- <div id="initialNav" class="nav-box"></div> -->
     <!-- <div class="container"> -->
       <div 
         id="nav"
         :class="initialView === true ? 'initial-view' : 'nav-view'"
       >
+        <img width="30" height="30" src="./assets/images/cassadyb_logo_thick_dark.png" />
+        <router-link to="about">About</router-link>
         <router-link to="code">Code</router-link> 
         <router-link to="design">Design</router-link> 
-        <router-link to="about">About</router-link>
       </div>
       <div :class="initialView === true ? 'welcome show' : 'welcome hide'">
         <div class="title-row no-wrap title-1">
@@ -23,8 +27,8 @@
          <div class="title-row no-wrap title-4">
           <div>M</div><div>O</div><div>T</div><div>I</div><div>O</div><div>N</div><div> </div><div>S</div><div>I</div><div>M</div><div>P</div><div>L</div><div>I</div><div>C</div><div>I</div><div>T</div><div>Y</div><div> </div><div>F</div><div>E</div><div>E</div><div>L</div>
         </div>
-        <button @click="openSite" class="icon dark">
-          See My Work <i class="material-icons">forward</i>
+        <button @click="openSite" class="icon">
+          See More <i class="material-icons">forward</i>
         </button>
       </div>
       <transition 
@@ -36,6 +40,7 @@
     </div>
 </template>
 <script>
+import { mapGetters } from "vuex"
 
 export default {
   name: 'app',
@@ -55,8 +60,14 @@ export default {
     },
     openSite() {
       this.initialView = false;
-      setTimeout(() => { this.routeTo('code') }, 2000);
+      setTimeout(() => { this.routeTo('about') }, 2000);
     }
+  },
+  computed: {
+    ...mapGetters([
+        'getBlurBackground'
+        // ...
+    ])
   }
 }
 </script>
@@ -88,6 +99,7 @@ body {
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
+  transition: opacity 1s;
 }
 
 .title-row {
@@ -159,7 +171,7 @@ body {
 
 #nav {
   width: 100%;
-  position: absolute;
+  position: fixed;
   display: inline-flex;
   background: linear-gradient($black-olive-lighten, $black-olive);
   color: $baby-powder;
@@ -181,6 +193,10 @@ body {
       border-radius: 2px;
     }
   }
+
+  img {
+    margin: .75rem 1rem;
+  }
 }
 
 .initial-view {
@@ -189,7 +205,7 @@ body {
 }
 
 .nav-view {
-  height: 55px;
+  height: 50px;
   transition: height 1s;
   transition-delay: 1s;
   border-bottom: solid 3px $opal;
@@ -200,10 +216,10 @@ body {
 }
 
 button {
-  // border-color: $black-olive;
+  border-color: $opal;
   box-shadow: 1px 1px 4px $black-olive;
-  color: $baby-powder;
-  background: $opal;
+  color: $opal; // $opal-lighten; //$baby-powder;
+  background: $black-olive;
   z-index: 1;
 
   &.icon {
@@ -219,44 +235,88 @@ button {
 
   &.circle {
     border-radius: 100%;
-    padding: 1.1rem 0 0 0 !important;
+    padding: 1.1rem 0 0 0;
     height: 50px;
     width: 50px;
     margin-bottom: 0;
     justify-content: center;
+
+    &.small {
+      height: 4rem;
+      width: 4rem;
+      padding: .5rem 0 0 0;
+    }
 
     .material-icons {
       margin-left: 0;
     }
   } 
 
+  &.small {
+    height: 3rem;
+    font-size: 10px;
+    line-height: 10px;
+    padding: 5px 10px;
+  }
+
   &.flat {
     box-shadow: none;
   }
+  &.light {
+    background: $opal;
+    color: white;
+    border-color: transparent;
 
-  &.dark {
-    background: $black-olive;
-    color: $opal;
-  
     &:hover {
-      // background-color: transparentize($color: $baby-powder, $amount: .2) !important;
-      color: $black-olive;
-      background-color: $baby-powder;
+      background-color: $baby-powder-darken;
     }
+  }
+  &.dark {
+    background: transparent;
+    color: $baby-powder;
+  
+    // &:hover {
+    //   // background-color: transparentize($color: $baby-powder, $amount: .2) !important;
+    //   color: $black-olive;
+    //   background-color: $baby-powder;
+    // }
   }
 
   &:hover {
     // cursor: pointer;
     // background-color: transparentize($color: $black-olive, $amount: .3);
+    color: $black-olive;
     background-color: $baby-powder;
   }
 }
 
+a {
+  color: $opal; 
+}
+a:hover {
+  color: $opal-darken; 
+}
 
 // HELPERS ____________________________
 .no-wrap {
   flex-wrap: nowrap;
   white-space: nowrap;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: $black-olive-lighten;
+}
+
+.overlay-blur {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+  background-color: rgba(255, 255, 255, 0.438);
+  opacity: 1;
+  z-index: 99;
 }
 
 // SPECIFIC CONTAINERS ___________________________
@@ -343,5 +403,18 @@ button {
   transform: translateY(-100%);
   opacity: 0;
   overflow: hidden;
+}
+
+.fade-enter-active {
+    transition: all .5s ease-in;
+}
+.fade-leave-active {
+    transition: all .5s ease-out;
+}
+.fade-enter {
+    opacity: 0;
+}
+.fade-leave-to{
+    opacity: 0;
 }
 </style>

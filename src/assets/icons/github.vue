@@ -1,6 +1,6 @@
 <template>
     <div @click="openLink">
-        <svg height="50" width="50" fill="#000000" enable-background="new 0 0 50 50" id="Layer_1" version="1.1" viewBox="0 0 50 50" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M45,1H5C2.8,1,1,2.8,1,5v40c0,2.2,1.8,4,4,4h40c2.2,0,4-1.8,4-4V5C49,2.8,47.2,1,45,1z" /><path d="M30.4,40h-4h-4c0,0,0-2.4,0-4c-5.5,1.2-7-3-7-3c-1-2-2-3-2-3c-2-1.2,0-1,0-1c2,0,3,2,3,2  c1.8,3,4.9,2.5,6,2c0-1,0.4-2.5,1-3c-4.4-0.5-8-3-8-8s1-6,2-7c-0.2-0.5-1-2.3,0-5c0,0,2,0,4,3c1-1,4-1,5-1c1,0,4,0,5,1c2-3,4-3,4-3  c1.1,2.7,0.2,4.5,0,5c1,1,2,2,2,7s-3.6,7.5-8,8c0.6,0.5,1,2.2,1,3L30.4,40L30.4,40z" fill="#FFFFFF" id="Cat_2_"/></svg>
+        <svg :height="height" :width="width" :fill="fill" enable-background="new 0 0 50 50" id="Layer_1" version="1.1" viewBox="0 0 50 50" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M45,1H5C2.8,1,1,2.8,1,5v40c0,2.2,1.8,4,4,4h40c2.2,0,4-1.8,4-4V5C49,2.8,47.2,1,45,1z" /><path d="M30.4,40h-4h-4c0,0,0-2.4,0-4c-5.5,1.2-7-3-7-3c-1-2-2-3-2-3c-2-1.2,0-1,0-1c2,0,3,2,3,2  c1.8,3,4.9,2.5,6,2c0-1,0.4-2.5,1-3c-4.4-0.5-8-3-8-8s1-6,2-7c-0.2-0.5-1-2.3,0-5c0,0,2,0,4,3c1-1,4-1,5-1c1,0,4,0,5,1c2-3,4-3,4-3  c1.1,2.7,0.2,4.5,0,5c1,1,2,2,2,7s-3.6,7.5-8,8c0.6,0.5,1,2.2,1,3L30.4,40L30.4,40z" fill="#FFFFFF" id="Cat_2_"/></svg>
     </div>
 </template>
 <script>
@@ -20,12 +20,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+@import '@/style/colors.scss';
+
 svg {
-    height: 50px;
-    width: 50px;
-    fill: #454545ff;
+    fill: $opal;
     &:hover {
-        fill: rgb(109, 109, 109);
+        fill: $opal-darken;
     }
 }
 </style>

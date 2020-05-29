@@ -35,7 +35,7 @@ export default {
     }
     .images {
         margin-left: 0;
-        padding: 1rem;
+        padding: 1rem 1rem 10rem 1rem;
         img {
             width: 100%;
             border: solid 1px $black-olive;
