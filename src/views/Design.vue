@@ -13,21 +13,31 @@
     <h3>Design</h3>
     <h5 id="packaging">Packaging</h5>
     <div class="image-container packaging">
-      <div v-for="img in packagingImages" v-bind:key="img">
-        <img :src="img" />
-      </div>
+      <img src="../assets/images/Projects-Pickwick-Myths-EP.jpg" />
+      <img src="../assets/images/Projects-Pickwick-Myths-Vol1.jpg" />
+      <img src="../assets/images/Projects-Pickwick-Myths-Vol2.jpg" />
+      <img src="../assets/images/Projects-Pickwick-Myths-Vol3.jpg" />
+      <img src="../assets/images/Projects-Pickwick-CDE-Split.jpg" />
     </div>
     <h5 id="posters">Posters</h5>
     <div class="image-container">
-      <div v-for="img in posterImages" v-bind:key="img">
-        <img :src="img" />
-      </div>
+      <img src="../assets/images/posters-PW-1.jpg" />
+      <img src="../assets/images/posters-PW-3.jpg" />
     </div>
     <h5 id="graphics">Graphics</h5>
     <div class="image-container">
-      <div v-for="img in graphicImages" v-bind:key="img">
-        <img :src="img" />
-      </div>
+      <img src="../assets/images/shirt-SB-2.png" />
+      <img src="../assets/images/shirt-GY-2.png" />
+      <img src="../assets/images/shirt-SW-2.png" />
+      <img src="../assets/images/shirt-FS-1.png" />
+      <img src="../assets/images/shirt-SW-9.png" />
+      <img src="../assets/images/shirt-SW-10.png" />
+      <img src="../assets/images/shirt-SW-5.png" />
+      <img src="../assets/images/shirt-LX-1.png" />
+      <img src="../assets/images/shirt-MB-1.png" />
+      <img src="../assets/images/shirt-RW-1.png" />
+      <img src="../assets/images/shirt-SB-1.png" />
+      <img src="../assets/images/shirt-SW-7.png" />
     </div>
   </div>
 </template>
