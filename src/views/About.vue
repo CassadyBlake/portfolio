@@ -1,11 +1,13 @@
 <template>
   <div class="about container row">
-    <div class="twelve columns"><h2>Cassady Lillstrom</h2></div>
+    <div class="twelve columns"><h2>Cassady Lillstrom</h2>
+    </div>
     <div class="twelve columns divider"></div>
     <div class="twelve columns text-box">
       <div class="eight columns bio">
         <p><img width="200" src="../assets/images/headshot.jpg" />I am a web-developer with a passion for clean, simple and satisfying design both in the user interface and my code. I enjoy creating intuitive user experiences and emersive animations, without getting overly complex. My background in graphic design has helped me to enjoy all areas of the coding experience, from color selection to data/table creation. I look forward to expanding my skill set and adding my tallents to every new project.</p>
-        <p>I have been working as a developer for the past two years, and before that, worked as a graphic artist. My passion for design melds well with a desire to construct useful products with great functionality as well as visual appeal. </p>
+        <p>I have been working as a developer for the past two years, and before that, worked as a graphic artist. My passion for design melds well with a desire to construct useful products with great functionality as well as visual appeal. 
+        </p>
       </div>
       <div class="four columns skills">
         <table>
@@ -68,7 +70,6 @@
         fill="#454545ff"
         @openLink="openRoute('https://twitter.com/cassadyblake')"
       />
-      <a href="mailto:cassady.lillstrom@gmail.com"><h5>cassady.lillstrom@gmail.com</h5></a>
     </div>
   </div>
 </template>

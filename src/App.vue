@@ -12,7 +12,10 @@
         <img width="30" height="30" src="./assets/images/cassadyb_logo_thick_dark.png" />
         <router-link to="about">About</router-link>
         <router-link to="code">Code</router-link> 
-        <router-link to="design">Design</router-link> 
+        <router-link to="design">Design</router-link>
+        <div class="spacer"></div>
+        <a href="mailto:cassady.lillstrom@gmail.com">cassady.lillstrom@gmail.com<i style="font-size: 15px" class="material-icons">email</i></a>
+        <a href="./resume.pdf" target="_blank">Resume <i style="font-size: 15px" class="material-icons">picture_as_pdf</i></a>
       </div>
       <div :class="initialView === true ? 'welcome show' : 'welcome hide'">
         <div class="title-box">
@@ -28,7 +31,7 @@
           <div class="title-row no-wrap title-4">
             <div>M</div><div>O</div><div>T</div><div>I</div><div>O</div><div>N</div><div> </div><div>S</div><div>I</div><div>M</div><div>P</div><div>L</div><div>I</div><div>C</div><div>I</div><div>T</div><div>Y</div><div> </div><div>F</div><div>E</div><div>E</div><div>L</div>
           </div>
-        <button @click="openSite" class="icon">
+        <button @click="openSite" class="append-icon">
           See More <i class="material-icons">forward</i>
         </button>
 
@@ -195,7 +198,11 @@ body {
     padding: 0;
     color: $baby-powder;
     text-decoration: none;
+    white-space: nowrap;
 
+    .material-icons {
+      margin-left: .5rem;
+    }
     &:hover {
       text-shadow: #fff 1px 0 20px;
       background-color: $black-olive-lighten;
@@ -235,7 +242,7 @@ button {
   background: $black-olive;
   z-index: 1;
 
-  &.icon {
+  &.append-icon {
     justify-items: center;
     display: inline-flex;
 
@@ -246,6 +253,16 @@ button {
     }
   }
 
+  &.icon {
+    justify-items: center;
+    display: inline-flex;
+
+    .material-icons {
+      font-size: 20px;
+      margin-left: 1rem;
+    }
+  }
+
   &.circle {
     border-radius: 100%;
     padding: 1.1rem 0 0 0;
@@ -253,6 +270,7 @@ button {
     width: 50px;
     margin-bottom: 0;
     justify-content: center;
+    align-content: center;
 
     &.small {
       height: 4rem;
@@ -330,6 +348,10 @@ a:hover {
   background-color: rgba(255, 255, 255, 0.438);
   opacity: 1;
   z-index: 99;
+}
+
+.spacer {
+  width: 100%;
 }
 
 // SPECIFIC CONTAINERS ___________________________

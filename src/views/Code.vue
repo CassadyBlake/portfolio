@@ -18,7 +18,7 @@
           <h5>Prism</h5>
           <p class="tools">( Vue, Vuex, Vuetify, SCSS, GraphQL, Apollo )</p>
         <div class="button-container">
-          <button class="icon flat light" @click="openDetails('Prism')">DETAILS <i class="material-icons">web</i></button>
+          <button class="append-icon flat light" @click="openDetails('Prism')">DETAILS <i class="material-icons">web</i></button>
         </div>
       </div>
     </div>
@@ -30,8 +30,8 @@
           <h5>Pomodoro Timer</h5>
           <p class="tools">( React, SCSS, Firebase )</p>
         <div class="button-container">
-          <button class="icon flat light" @click="openDetails('Pomodoro Timer')">DETAILS <i class="material-icons">web</i></button>
-          <button class="icon flat light" @click="openRoute('https://cassadyb.com/pomodoro')">VIEW <i class="material-icons">launch</i></button>
+          <button class="append-icon flat light" @click="openDetails('Pomodoro Timer')">DETAILS <i class="material-icons">web</i></button>
+          <button class="append-icon flat light" @click="openRoute('https://cassadyb.com/pomodoro')">VIEW <i class="material-icons">launch</i></button>
         </div>
       </div>
     </div>
@@ -43,8 +43,8 @@
           <h5>Weather Finder (vanilla JS)</h5>
           <p class="tools">( Javascript, Async Functions, API )</p>
         <div class="button-container">
-          <button class="icon flat light" @click="openDetails('Weather Finder')">DETAILS <i class="material-icons">web</i></button>
-          <button class="icon flat light" @click="openRoute('https://cassadyb.com/weather')">VIEW <i class="material-icons">launch</i></button>
+          <button class="append-icon flat light" @click="openDetails('Weather Finder')">DETAILS <i class="material-icons">web</i></button>
+          <button class="append-icon flat light" @click="openRoute('https://cassadyb.com/weather')">VIEW <i class="material-icons">launch</i></button>
         </div>
       </div>
     </div>
@@ -56,8 +56,8 @@
           <h5>Timeline Component</h5>
           <p class="tools">( Vue.js, CSS, SCSS )</p>
         <div class="button-container">
-          <button class="icon flat light" @click="openDetails('Timeline Component')">DETAILS <i class="material-icons">web</i></button>
-          <button class="icon flat light" @click="openRoute('https://codepen.io/cassadyblake/pen/oNjWvZV')">VIEW <i class="material-icons">launch</i></button>
+          <button class="append-icon flat light" @click="openDetails('Timeline Component')">DETAILS <i class="material-icons">web</i></button>
+          <button class="append-icon flat light" @click="openRoute('https://codepen.io/cassadyblake/pen/oNjWvZV')">VIEW <i class="material-icons">launch</i></button>
         </div>
       </div>
     </div>

@@ -127,7 +127,6 @@ export default {
   bottom: 1rem;
 
   button {
-    padding-top: 0;
     background-color: $opal;
     color: white;
     border:none;
