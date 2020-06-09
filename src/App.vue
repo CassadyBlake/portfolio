@@ -353,6 +353,7 @@ a {
 }
 a:hover {
   color: $opal-darken; 
+  cursor: pointer;
 }
 
 // HELPERS ____________________________
