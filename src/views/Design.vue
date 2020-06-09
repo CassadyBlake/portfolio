@@ -109,8 +109,8 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  transition-delay: 1s;
-  transition: margin 1s 1s;
+  // transition-delay: 1s;
+  // transition: margin 1s 1s;
   -webkit-animation: 4s linear 0s slidedown;
   animation: 1s linear 0s slidedown;
     
