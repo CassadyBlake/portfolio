@@ -13,31 +13,31 @@
     <h3>Design</h3>
     <h5 id="packaging">Packaging</h5>
     <div class="image-container packaging">
-      <img src="../assets/images/Projects-Pickwick-Myths-EP.jpg" />
-      <img src="../assets/images/Projects-Pickwick-Myths-Vol1.jpg" />
-      <img src="../assets/images/Projects-Pickwick-Myths-Vol2.jpg" />
-      <img src="../assets/images/Projects-Pickwick-Myths-Vol3.jpg" />
-      <img src="../assets/images/Projects-Pickwick-CDE-Split.jpg" />
+      <img class="lazy" src="../assets/images/Projects-Pickwick-Myths-EP.jpg" />
+      <img class="lazy" src="../assets/images/Projects-Pickwick-Myths-Vol1.jpg" />
+      <img class="lazy" src="../assets/images/Projects-Pickwick-Myths-Vol2.jpg" />
+      <img class="lazy" src="../assets/images/Projects-Pickwick-Myths-Vol3.jpg" />
+      <img class="lazy" src="../assets/images/Projects-Pickwick-CDE-Split.jpg" />
     </div>
     <h5 id="posters">Posters</h5>
     <div class="image-container">
-      <img src="../assets/images/posters-PW-1.jpg" />
-      <img src="../assets/images/posters-PW-3.jpg" />
+      <img class="lazy" src="../assets/images/posters-PW-1.jpg" />
+      <img class="lazy" src="../assets/images/posters-PW-3.jpg" />
     </div>
     <h5 id="graphics">Graphics</h5>
     <div class="image-container">
-      <img src="../assets/images/shirt-SB-2.png" />
-      <img src="../assets/images/shirt-GY-2.png" />
-      <img src="../assets/images/shirt-SW-2.png" />
-      <img src="../assets/images/shirt-FS-1.png" />
-      <img src="../assets/images/shirt-SW-9.png" />
-      <img src="../assets/images/shirt-SW-10.png" />
-      <img src="../assets/images/shirt-SW-5.png" />
-      <img src="../assets/images/shirt-LX-1.png" />
-      <img src="../assets/images/shirt-MB-1.png" />
-      <img src="../assets/images/shirt-RW-1.png" />
-      <img src="../assets/images/shirt-SB-1.png" />
-      <img src="../assets/images/shirt-SW-7.png" />
+      <img class="lazy" src="../assets/images/shirt-SB-2.png" />
+      <img class="lazy" src="../assets/images/shirt-GY-2.png" />
+      <img class="lazy" src="../assets/images/shirt-SW-2.png" />
+      <img class="lazy" src="../assets/images/shirt-FS-1.png" />
+      <img class="lazy" src="../assets/images/shirt-SW-9.png" />
+      <img class="lazy" src="../assets/images/shirt-SW-10.png" />
+      <img class="lazy" src="../assets/images/shirt-SW-5.png" />
+      <img class="lazy" src="../assets/images/shirt-LX-1.png" />
+      <img class="lazy" src="../assets/images/shirt-MB-1.png" />
+      <img class="lazy" src="../assets/images/shirt-RW-1.png" />
+      <img class="lazy" src="../assets/images/shirt-SB-1.png" />
+      <img class="lazy" src="../assets/images/shirt-SW-7.png" />
     </div>
   </div>
 </template>
@@ -48,10 +48,15 @@ export default {
   },
   data() {
     return {
+      lazyloadImages: null,
+      lazyloadThrottleTimeout: null,
       graphicImages: ['../assets/images/shirt-SB-2.png','../assets/images/shirt-GY-2.png','../assets/images/shirt-SW-2.png','../assets/images/shirt-FS-1.png','../assets/images/shirt-SW-9.png','../assets/images/shirt-SW-10.png','../assets/images/shirt-SW-5.png','../assets/images/shirt-LX-1.png','../assets/images/shirt-MB-1.png','../assets/images/shirt-RW-1.png','../assets/images/shirt-SB-1.png','../assets/images/shirt-SW-7.png',],
       posterImages: ['../assets/images/posters-PW-1.jpg','../assets/images/posters-PW-3.jpg'],
       packagingImages: ['../assets/images/Projects-Pickwick-Myths-EP.jpg','../assets/images/Projects-Pickwick-Myths-Vol1.jpg','../assets/images/Projects-Pickwick-Myths-Vol2.jpg','../assets/images/Projects-Pickwick-Myths-Vol3.jpg','../assets/images/Projects-Pickwick-CDE-Split.jpg']
     }
+  },
+  mounted() {
+      
   },
   methods: {
     scrollToTop() {

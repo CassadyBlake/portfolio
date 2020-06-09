@@ -10,12 +10,17 @@
         :class="initialView === true ? 'initial-view' : 'nav-view'"
       >
         <img width="30" height="30" src="./assets/images/cassadyb_logo_thick_dark.png" />
-        <router-link to="about">About</router-link>
+        <a @click="currentView = 'about'">About</a>
+        <a @click="currentView = 'code'">Code</a> 
+        <a @click="currentView = 'design'">Design</a>
+        <!-- <router-link to="about">About</router-link>
         <router-link to="code">Code</router-link> 
-        <router-link to="design">Design</router-link>
+        <router-link to="design">Design</router-link> -->
         <div class="spacer"></div>
-        <a href="mailto:cassady.lillstrom@gmail.com">cassady.lillstrom@gmail.com<i style="font-size: 15px" class="material-icons">email</i></a>
-        <a href="./resume.pdf" target="_blank">Resume <i style="font-size: 15px" class="material-icons">picture_as_pdf</i></a>
+        <a class="non-mobile" href="mailto:cassady.lillstrom@gmail.com">cassady.lillstrom@gmail.com<i style="font-size: 15px" class="material-icons">email</i></a>
+        <a class="mobile" href="mailto:cassady.lillstrom@gmail.com"><i style="font-size: 15px" class="material-icons">email</i></a>
+        <a class="non-mobile" href="./resume.pdf" target="_blank">Resume<i style="font-size: 15px" class="material-icons">picture_as_pdf</i></a>
+        <a class="mobile" href="./resume.pdf" target="_blank"><i style="font-size: 15px" class="material-icons">picture_as_pdf</i></a>
       </div>
       <div :class="initialView === true ? 'welcome show' : 'welcome hide'">
         <div class="title-box">
@@ -41,32 +46,54 @@
         name="expand"
         mode="out-in"
       >
-        <router-view />
+        <code-view v-show="currentView === 'code'" />
+      </transition>
+      <transition 
+        name="expand"
+        mode="out-in"
+      >
+        <about-view v-show="currentView === 'about'" />
+      </transition>
+      <transition 
+        name="expand"
+        mode="out-in"
+      >
+        <design-view v-show="currentView === 'design'"/>
       </transition>
     </div>
 </template>
 <script>
 import { mapGetters } from "vuex"
 
+import codeView from "./views/Code"
+import designView from "./views/Design"
+import aboutView from "./views/About"
+
+
 export default {
   name: 'app',
   components: {
+    codeView,
+    designView,
+    aboutView
   },
   data() {
     return {
-      initialView: true
+      initialView: true,
+      currentView: ''
     }
   },
   mounted() {
-    this.$router.push('/');
+    this.$router.push('/')
   },
   methods: {
-    routeTo(view) {
-      this.$router.push(view);
-    },
+    // routeTo(view) {
+    //   this.$router.push(view);
+    // },
     openSite() {
       this.initialView = false;
-      setTimeout(() => { this.routeTo('about') }, 2000);
+      setTimeout(() => { this.currentView = 'about' }, 2000);
+      // setTimeout(() => { this.routeTo('about') }, 2000);
     }
   },
   computed: {
@@ -354,6 +381,14 @@ a:hover {
   width: 100%;
 }
 
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
 // SPECIFIC CONTAINERS ___________________________
 .welcome {
   width: 100%;
@@ -379,6 +414,24 @@ a:hover {
     overflow: hidden;
     border-top: solid 3px transparent;
     transition: height 1s, opacity 1s, padding-top 1s;
+  }
+}
+
+.mobile {
+ display: inherit;
+}
+
+.non-mobile {
+  display: none;
+}
+
+@media (min-width: 750px) {
+  .mobile {
+    display: none;
+  }
+
+  .non-mobile {
+    display: inherit;
   }
 }
 

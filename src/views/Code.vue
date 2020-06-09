@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div id="view" class="container preload" v-show="loaded">
     <!-- <transition name="size" mode="in-out"> -->
       <details-modal
         :project="selectedProject"
@@ -76,6 +76,7 @@ export default {
   },
   data: () => {
     return {
+      loaded: false,
       selectedProject: "",
       showDetailsModal: false,
       projects: [
@@ -85,6 +86,8 @@ export default {
         { name: "Timeline Component", essay: "I was asked to create a timeline component in order to display particular events related to a surveying job. It needed to display them in order based first on the completion of the event and second on the date created or completed. I enjoyed working out the gradient overlay for the events to disapear into when the timeline is scrolled and the scroll buttons showing or not based on the length of the timeline."},
       ]
     }
+  },
+  mounted() {
   },
   methods: {
     openDetails(projectName) {
