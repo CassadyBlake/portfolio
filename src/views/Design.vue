@@ -1,12 +1,10 @@
 <template>
   <div class="design container">
-    <transition name="drop" mode="in-out">
       <div class="design-nav">
         <button class="light flat small" @click="scrollToSection('packaging')">Packaging</button>
         <button class="light flat small" @click="scrollToSection('posters')">Posters</button>
         <button class="light flat small" @click="scrollToSection('graphics')">Graphics</button>
       </div>
-    </transition>
     <div class="scroll-top">
       <button @click="scrollToTop" class="circle icon light"><i class="material-icons">arrow_circle_up</i></button>
     </div>

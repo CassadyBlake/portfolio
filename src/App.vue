@@ -436,20 +436,6 @@ a:hover {
 }
 
 // ANIMATIONS/TRANSITIONS __________________________
-@keyframes circle {
-  from {
-    left: -200%;
-  }
-  50% {
-    left: -30%;
-  }
-  80% {
-    left: -100%;
-  }
-  to {
-    left: -200%;
-  }
-}
 
 .expand-enter-active {
   transition: all .5s ease-in;
