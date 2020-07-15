@@ -1,12 +1,14 @@
 <template>
   <div id="view" class="container preload" v-show="loaded">
-    <!-- <transition name="size" mode="in-out"> -->
+
+      <div class="overlay-blur" v-show="showDetailsModal"></div>
+
       <details-modal
         :project="selectedProject"
-        :visible="showDetailsModal"
+        v-show="showDetailsModal"
         @close="showDetailsModal=false"
       />
-    <!-- </transition> -->
+
     <div class="twelve columns">
       <h3>Projects</h3>
     </div>
@@ -176,22 +178,16 @@ export default {
   }
 }
 
+.overlay-blur {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(2px);
+  background-color: rgba(255, 255, 255, 0.438);
+  opacity: 1;
+  z-index: 99;
+}
 
-.size-enter-active {
-    transition: all 1s ease-in;
-    transition-timing-function:cubic-bezier(0.0, 0.0, 0.7, 1.0);
-}
-.size-leave-active {
-    transition: all 1s ease-out;
-}
-.size-enter
-/* .slide-leave-active below version 2.1.8 */ {
-    transform: scale(0);
-    opacity: 0;
-}
-.size-leave-to
-/* .slide-leave-active below version 2.1.8 */ {
-    transform: scale(0);
-    opacity: 0;
-}
 </style>

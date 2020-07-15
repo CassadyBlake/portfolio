@@ -1,8 +1,6 @@
 <template>
   <div id="app" >
-    <transition mode="in-out" name="fade">
-      <div class="overlay-blur" v-show="getBlurBackground"></div>
-    </transition>
+    
     <!-- <div id="initialNav" class="nav-box"></div> -->
     <!-- <div class="container"> -->
       <div 
@@ -63,7 +61,6 @@
     </div>
 </template>
 <script>
-import { mapGetters } from "vuex"
 
 import codeView from "./views/Code"
 import designView from "./views/Design"
@@ -97,10 +94,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-        'getBlurBackground'
-        // ...
-    ])
   }
 }
 </script>
@@ -368,16 +361,6 @@ a:hover {
   background-color: $black-olive-lighten;
 }
 
-.overlay-blur {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(2px);
-  background-color: rgba(255, 255, 255, 0.438);
-  opacity: 1;
-  z-index: 99;
-}
-
 .spacer {
   width: 100%;
 }
@@ -456,18 +439,5 @@ a:hover {
   transform: translateY(-100%);
   opacity: 0;
   overflow: hidden;
-}
-
-.fade-enter-active {
-    transition: all .5s ease-in;
-}
-.fade-leave-active {
-    transition: all .5s ease-out;
-}
-.fade-enter {
-    opacity: 0;
-}
-.fade-leave-to{
-    opacity: 0;
 }
 </style>

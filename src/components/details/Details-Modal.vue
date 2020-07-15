@@ -1,61 +1,39 @@
 <template>
-    <div v-show="visible">
-        <transition name="size" mode="in-out">
-            <div :class="project.name === 'Prism' ? 'details-card large' : 'details-card small'" v-show="showDetails">
-                <div class="modal-toolbar">
-                    <button class="circle close flat dark small" @click="close()"><i class="material-icons">close</i></button>
-                </div>
-                <prism-details
-                    v-if="project.name === 'Prism'"
-                    class="details-content"
-                />
-                <div class="details-content">
-                    <h2>{{project.name}}</h2>
-                    <p class="essay">{{project.essay}}</p>
-                </div>
-            </div>
-        </transition>
+<transition name="modal-fade">
+    <div :class="project.name === 'Prism' ? 'modal large' : 'modal small'">
+        <div class="modal-toolbar">
+            <button class="circle close flat dark small" @click="close()"><i class="material-icons">close</i></button>
+        </div>
+        <prism-details
+            v-if="project.name === 'Prism'"
+            class="details-content"
+        />
+        <div class="details-content">
+            <h2>{{project.name}}</h2>
+            <p class="essay">{{project.essay}}</p>
+        </div>
     </div>
+</transition>
 </template>
 <script>
 import prismDetails from "./Prism-Details"
-import { mapMutations, mapGetters } from "vuex"
 
 export default {
     name: "details-modal",
     components: {
         prismDetails
     },
-    props: ["visible", "project"],
+    props: ["project"],
     data: () => {
-        return {
-            showDetails: false
-        }
     },
     methods: {
-        ...mapMutations(['setBlurBackground']),
         close() {
-            this.showDetails = false
-            setTimeout(() => {
-                this.$emit('close')
-            },500)
+            this.$emit('close')
         }
     },
     computed: {
-        ...mapGetters([
-            'getBlurBackground'
-            // ...
-        ])
     },
     watch: {
-        visible() {
-            this.setBlurBackground()
-            if(this.visible) {
-                this.showDetails = true
-            } else {
-                this.showDetails = false
-            }
-        }
     }
 }
 </script>
@@ -63,9 +41,9 @@ export default {
 @import '@/style/colors.scss';
 
 
-    .details-card {
+    .modal {
         border-radius: 5px;
-        margin-top: 1rem;
+        margin-top: 6rem;
         margin-bottom: 1rem;
         transform: scale(1);
         opacity: 1;
@@ -82,28 +60,28 @@ export default {
     }
     /* Larger than mobile */
     @media (min-width: 400px) {
-        .details-card {
+        .modal {
             width: 85%;
         }
     }
 
     /* Larger than phablet (also point when grid becomes active) */
     @media (min-width: 550px) {
-        .details-card {
+        .modal {
             width: 90%;
         }
     }
 
     /* Larger than tablet */
     // @media (min-width: 750px) {
-    //      .details-card {
+    //      .modal {
     //         width: 90%;
     //     }
     // }
 
     /* Larger than desktop */
     @media (min-width: 1000px) {
-         .details-card {
+         .modal {
             width: 75%;
             left: 12.5%;
 
@@ -150,22 +128,13 @@ export default {
         right: 1rem;
     }
 
-    .size-enter-active {
-        transition: all .5s ease-in;
-        transition-timing-function:cubic-bezier(0.0, 0.0, 0.7, 1.0);
-    }
-    .size-leave-active {
-        transition: all .5s ease-out;
-    }
-    .size-enter
-    /* .slide-leave-active below version 2.1.8 */ {
-        transform: scale(0);
+    .modal-fade-enter,
+    .modal-fade-leave-active {
         opacity: 0;
     }
-    .size-leave-to
-    /* .slide-leave-active below version 2.1.8 */ {
-        transition-delay: .3s;
-        transform: scale(0);
-        opacity: 0;
+
+    .modal-fade-enter-active,
+    .modal-fade-leave-active {
+        transition: opacity 10s ease
     }
 </style>
