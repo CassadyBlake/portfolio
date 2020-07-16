@@ -1,13 +1,14 @@
 <template>
-  <div id="view" class="container preload" v-show="loaded">
+  <div id="view" class="container" v-show="loaded">
 
-      <div class="overlay-blur" v-show="showDetailsModal"></div>
-
+    <div class="overlay-blur" v-show="showDetailsModal"></div>
+    <transition name="fade" mode="out-in">
       <details-modal
         :project="selectedProject"
-        v-show="showDetailsModal"
+        v-if="showDetailsModal"
         @close="showDetailsModal=false"
       />
+    </transition>
 
     <div class="twelve columns">
       <h3>Projects</h3>
@@ -81,6 +82,7 @@ export default {
       loaded: false,
       selectedProject: "",
       showDetailsModal: false,
+      showBox: false,
       projects: [
         { name: "Prism", essay: ""},
         { name: "Pomodoro Timer", essay: "An application created using React for time management. Implimenting the Pomodoro Technique, the application tracks a full work-day being split into 25 minute segments with 5 minute breaks in between, and a 30 minute break in the middle. Dealing with time is always tricky and I enjoyed the challenge of logging each 25 minute session and triggering the breaks. The clock was great practice for manipulating css properties with rotation and triangular shapes."},
@@ -188,6 +190,17 @@ export default {
   background-color: rgba(255, 255, 255, 0.438);
   opacity: 1;
   z-index: 99;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+    transform: scale(1.1)
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: all .5s ease
 }
 
 </style>

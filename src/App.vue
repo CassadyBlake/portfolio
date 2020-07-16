@@ -77,11 +77,12 @@ export default {
   data() {
     return {
       initialView: true,
+      showBox: false,
       currentView: ''
     }
   },
   mounted() {
-    this.$router.push('/')
+    // this.$router.push('/')
   },
   methods: {
     // routeTo(view) {
@@ -365,13 +366,13 @@ a:hover {
   width: 100%;
 }
 
-.preload * {
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -ms-transition: none !important;
-  -o-transition: none !important;
-  transition: none !important;
-}
+// .preload * {
+//   -webkit-transition: none !important;
+//   -moz-transition: none !important;
+//   -ms-transition: none !important;
+//   -o-transition: none !important;
+//   transition: none !important;
+// }
 
 // SPECIFIC CONTAINERS ___________________________
 .welcome {
@@ -440,4 +441,5 @@ a:hover {
   opacity: 0;
   overflow: hidden;
 }
+
 </style>

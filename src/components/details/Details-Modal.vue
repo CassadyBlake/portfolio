@@ -1,5 +1,4 @@
 <template>
-<transition name="modal-fade">
     <div :class="project.name === 'Prism' ? 'modal large' : 'modal small'">
         <div class="modal-toolbar">
             <button class="circle close flat dark small" @click="close()"><i class="material-icons">close</i></button>
@@ -13,7 +12,6 @@
             <p class="essay">{{project.essay}}</p>
         </div>
     </div>
-</transition>
 </template>
 <script>
 import prismDetails from "./Prism-Details"
@@ -25,6 +23,9 @@ export default {
     },
     props: ["project"],
     data: () => {
+        return {
+            
+        }
     },
     methods: {
         close() {
@@ -126,15 +127,5 @@ export default {
         border: none;
         position: relative;
         right: 1rem;
-    }
-
-    .modal-fade-enter,
-    .modal-fade-leave-active {
-        opacity: 0;
-    }
-
-    .modal-fade-enter-active,
-    .modal-fade-leave-active {
-        transition: opacity 10s ease
     }
 </style>
