@@ -29,6 +29,9 @@
             <td>React.js</td><td style="color: #F2CA02">Intermediate</td>
           </tr>
           <tr>
+            <td>JQuery</td><td style="color: #F2CA02">Intermediate</td>
+          </tr>
+          <tr>
             <td>Photoshop</td><td style="color: #F2CA02">Intermediate</td>
           </tr>
           <tr>
