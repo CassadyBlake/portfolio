@@ -8,9 +8,9 @@
         :class="initialView === true ? 'initial-view' : 'nav-view'"
       >
         <img width="30" height="30" src="./assets/images/cassadyb_logo_thick_dark.png" />
-        <a @click="currentView = 'about'">About</a>
-        <a @click="currentView = 'code'">Code</a> 
-        <a @click="currentView = 'design'">Design</a>
+        <a @click="setCurrentView('about')">About</a>
+        <a @click="setCurrentView('code')">Code</a> 
+        <a @click="setCurrentView('design')">Design</a>
         <!-- <router-link to="about">About</router-link>
         <router-link to="code">Code</router-link> 
         <router-link to="design">Design</router-link> -->
@@ -40,24 +40,16 @@
 
         </div>
       </div>
-      <transition 
-        name="expand"
-        mode="out-in"
-      >
-        <code-view v-show="currentView === 'code'" />
-      </transition>
-      <transition 
-        name="expand"
-        mode="out-in"
-      >
-        <about-view v-show="currentView === 'about'" />
-      </transition>
-      <transition 
-        name="expand"
-        mode="out-in"
-      >
-        <design-view v-show="currentView === 'design'"/>
-      </transition>
+      <div class="container">
+        <transition
+          :name="transitionDirection"
+          mode="out-in"
+        >
+          <code-view v-if="currentView === 'code'" key="code" />
+          <about-view v-if="currentView === 'about'" key="about" />
+          <design-view v-if="currentView === 'design'" key="design" />
+        </transition>
+      </div>
     </div>
 </template>
 <script>
@@ -78,16 +70,22 @@ export default {
     return {
       initialView: true,
       showBox: false,
-      currentView: ''
+      currentView: '',
+      transitionDirection: 'slide-left'
     }
   },
   mounted() {
     // this.$router.push('/')
   },
   methods: {
-    // routeTo(view) {
-    //   this.$router.push(view);
-    // },
+    setCurrentView(view) {
+      const sequence = ['about', 'code', 'design']
+      sequence.indexOf(view) > sequence.indexOf(this.currentView) 
+        ? this.transitionDirection = 'slide-left' 
+        : this.transitionDirection = 'slide-right'
+      
+      this.currentView = view
+    },
     openSite() {
       this.initialView = false;
       setTimeout(() => { this.currentView = 'about' }, 2000);
@@ -422,24 +420,45 @@ a:hover {
 
 // ANIMATIONS/TRANSITIONS __________________________
 
-.expand-enter-active {
+.slide-right-enter-active {
   transition: all .5s ease-in;
   transition-timing-function:cubic-bezier(0.0, 0.0, 0.7, 1.0);
 }
-.expand-leave-active {
-  transition: all .3s ease-out;
+.slide-right-leave-active {
+  transition: all .5s ease-out;
 }
-.expand-enter
-/* .slide-leave-active below version 2.1.8 */ {
-  transform: translateY(-100%);
-  opacity: 0;
+.slide-right-enter {
+  transform: translateX(-100%);
   overflow: hidden;
 }
-.expand-leave-to
+.slide-right-leave {
+  transform: translateX(0);
+}
+.slide-right-leave-to
 /* .slide-leave-active below version 2.1.8 */ {
-  transform: translateY(-100%);
-  opacity: 0;
+  // opacity: 0;
+  transform: translateX(200%);
   overflow: hidden;
 }
 
+.slide-left-enter-active {
+  transition: all .5s ease-in;
+  transition-timing-function:cubic-bezier(0.0, 0.0, 0.7, 1.0);
+}
+.slide-left-leave-active {
+  transition: all .5s ease-out;
+}
+.slide-left-enter {
+  transform: translateX(100%);
+  overflow: hidden;
+}
+.slide-left-leave {
+  transform: translateX(0);
+}
+.slide-left-leave-to
+/* .slide-leave-active below version 2.1.8 */ {
+  // opacity: 0;
+  transform: translateX(-200%);
+  overflow: hidden;
+}
 </style>

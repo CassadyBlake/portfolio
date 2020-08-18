@@ -1,6 +1,5 @@
 <template>
-  <div id="view" class="container" v-show="loaded">
-
+  <div id="view" >
     <div class="overlay-blur" v-show="showDetailsModal"></div>
     <transition name="fade" mode="out-in">
       <details-modal
@@ -108,15 +107,16 @@ export default {
 <style lang="scss" scoped>
 @import '@/style/colors.scss';
 
+#view {
+  margin-top: 6rem;
+}
+
 @media (min-width: 550px) {
   .container {
+    margin-top: 6rem;
     width: 90%;
     max-width: 1200px;
   }
-}
-
-.container {
-  padding: 8rem .2rem 1rem .2rem;
 }
 
 .button-container {
@@ -130,7 +130,8 @@ export default {
 }
 
 .project-box {
-  border: solid 1px $black-olive;
+  // border: solid 1px $black-olive;
+  box-shadow: 1px 1px 10px rgb(163, 163, 163);
   border-radius: 5px;
   width: 25%;
   min-width: 325px;
@@ -138,7 +139,7 @@ export default {
   display: inline-flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  margin: 2rem;
+  margin: 3%;
   opacity: 1;
   overflow: hidden;
   
@@ -146,7 +147,6 @@ export default {
     color: $black-olive;
     padding: 1rem 1rem;
     height: 100%;
-    transition: all 1s ease-in-out;
     overflow: hidden;
 
     h5 {
@@ -167,16 +167,11 @@ export default {
 
     img {
       width: 100%;
-      border-bottom: solid 1px $black-olive-lighten;
+      // border-bottom: solid 1px $black-olive-lighten;
     }
   }
 
   &:hover {
-
-    .info-box {
-      opacity: 1;
-      transition: all .5s ease-in-out;
-    }
   }
 }
 

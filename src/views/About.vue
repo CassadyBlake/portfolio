@@ -1,5 +1,5 @@
 <template>
-  <div class="about container row">
+  <div id="view" class="container">
     <div class="twelve columns"><h2>Cassady Lillstrom</h2>
     </div>
     <div class="twelve columns divider"></div>
@@ -103,13 +103,8 @@ export default {
 <style lang="scss" scoped>
 @import '@/style/colors.scss';
 
-// .column,
-// .columns {
-//   margin-left: 0; 
-// }
-
-.about {
-  padding: 60px 2rem 0 2rem;
+.container {
+  margin-top: 6rem;
   text-align: left;
 
   .text-box {
@@ -120,8 +115,9 @@ export default {
     }
 
     img {
-      float: right;
-      margin-left: 3rem;
+      float: left;
+      margin-right: 3rem;
+      border-bottom: solid 5px $opal
     }
   }
 
@@ -145,7 +141,7 @@ export default {
 }
 
 .skills {
-  padding-left: 0rem;
+  // padding-left: 0rem;
 }
 /* For devices larger than 550px */
 @media (min-width: 550px) {
