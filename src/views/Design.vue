@@ -238,7 +238,7 @@ export default {
   }
 
   .main-image {
-    margin-top: 25%;
+    margin-top: 15rem;
     max-width: 400px;
     width: 100%;
 
