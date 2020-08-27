@@ -12,58 +12,18 @@
     <div class="twelve columns">
       <h3>Projects</h3>
     </div>
-    <div class="project-box">
-      <div class="content-box">
-        <img src="../assets/images/prism_img.png" />
-      </div>
+    <div 
+      class="project-box"
+      v-for="(project, index) in projects"  :key="index"
+    >
       <div class="info-box">
-          <h5>Prism</h5>
-          <p class="tools">( Vue, Vuex, Vuetify, SCSS, GraphQL, Apollo )</p>
-        <div class="button-container">
-          <button class="append-icon flat light" @click="openDetails('Prism')">DETAILS <i class="material-icons">web</i></button>
-        </div>
+          <h5>{{ project.name }}</h5>
+          <p class="tools">( {{project.skills}} )</p>
+          <button class="append-icon" @click="openDetails(project.name)">DETAILS <i class="material-icons">web</i></button>
+          <button v-if="project.url" class="append-icon" @click="openRoute(project.url)">VIEW <i class="material-icons">launch</i></button>
       </div>
+      <img :src="require(`../assets/images/${project.image}`)" :alt="project.name" />
     </div>
-    <div class="project-box">
-      <div class="content-box">
-          <img src="../assets/images/pomodoro_img.png" />
-      </div>
-      <div class="info-box">
-          <h5>Pomodoro Timer</h5>
-          <p class="tools">( React, SCSS, Firebase )</p>
-        <div class="button-container">
-          <button class="append-icon flat light" @click="openDetails('Pomodoro Timer')">DETAILS <i class="material-icons">web</i></button>
-          <button class="append-icon flat light" @click="openRoute('https://cassadyb.com/pomodoro')">VIEW <i class="material-icons">launch</i></button>
-        </div>
-      </div>
-    </div>
-    <div class="project-box">
-      <div class="content-box">
-        <img src="../assets/images/weather_img.png" />
-      </div>
-      <div class="info-box">
-          <h5>Weather Finder (vanilla JS)</h5>
-          <p class="tools">( Javascript, Async Functions, API )</p>
-        <div class="button-container">
-          <button class="append-icon flat light" @click="openDetails('Weather Finder')">DETAILS <i class="material-icons">web</i></button>
-          <button class="append-icon flat light" @click="openRoute('https://cassadyb.com/weather')">VIEW <i class="material-icons">launch</i></button>
-        </div>
-      </div>
-    </div>
-    <div class="project-box">
-      <div class="content-box">
-        <img src="../assets/images/timeline_img.png" />
-      </div>
-      <div class="info-box">
-          <h5>Timeline Component</h5>
-          <p class="tools">( Vue.js, CSS, SCSS )</p>
-        <div class="button-container">
-          <button class="append-icon flat light" @click="openDetails('Timeline Component')">DETAILS <i class="material-icons">web</i></button>
-          <button class="append-icon flat light" @click="openRoute('https://codepen.io/cassadyblake/pen/oNjWvZV')">VIEW <i class="material-icons">launch</i></button>
-        </div>
-      </div>
-    </div>
-    
   </div>
 </template>
 
@@ -83,10 +43,36 @@ export default {
       showDetailsModal: false,
       showBox: false,
       projects: [
-        { name: "Prism", essay: ""},
-        { name: "Pomodoro Timer", essay: "An application created using React for time management. Implimenting the Pomodoro Technique, the application tracks a full work-day being split into 25 minute segments with 5 minute breaks in between, and a 30 minute break in the middle. Dealing with time is always tricky and I enjoyed the challenge of logging each 25 minute session and triggering the breaks. The clock was great practice for manipulating css properties with rotation and triangular shapes."},
-        { name: "Weather Finder", essay: "An application that displays the current weather conditions for a selected city, built using only 'vanilla' javascript. An excercise in working without a library or framework, this was a great challenge and reminder of how javascript functions within those systems."},
-        { name: "Timeline Component", essay: "I was asked to create a timeline component in order to display particular events related to a surveying job. It needed to display them in order based first on the completion of the event and second on the date created or completed. I enjoyed working out the gradient overlay for the events to disapear into when the timeline is scrolled and the scroll buttons showing or not based on the length of the timeline."},
+        { name: "Prism", 
+          skills: "Vue, Vuex, Vuetify, SCSS, GraphQL, Apollo",
+          essay: "",
+          url: null,
+          image: "prism_img.jpg"
+        },
+        { name: "Pomodoro Timer",
+          skills: "React, SCSS, Firebase", 
+          essay: "An application created using React for time management. Implimenting the Pomodoro Technique, the application tracks a full work-day being split into 25 minute segments with 5 minute breaks in between, and a 30 minute break in the middle. Dealing with time is always tricky and I enjoyed the challenge of logging each 25 minute session and triggering the breaks. The clock was great practice for manipulating css properties with rotation and triangular shapes.",
+          url: "https://cassadyb.com/pomodoro",
+          image: "pomodoro_img.jpg"
+        },
+        { name: "Spun Streaming", 
+          skills: "React, React-Router, Audio Elements", 
+          essay: "An application created using React for streaming music. Learned to manage assets both within and outside of the public folder. Set up a complex series of functions to play songs, display icons and manipulate volume and song time tracking on scroll. Added a bit of an 80's design vibe to it for fun.",
+          url: "https://cassadyb.com/spun",
+          image: "spun_img.jpg"
+        },
+        { name: "Weather Finder", 
+          skills: "Javascript, Async, API",
+          essay: "An application that displays the current weather conditions for a selected city, built using only 'vanilla' javascript. An excercise in working without a library or framework, this was a great challenge and reminder of how javascript functions within those systems.",
+          url: "https://cassadyb.com/weather",
+          image: "weather_img.jpg"
+        },
+        { name: "Timeline Component", 
+          skills: "Vue, CSS, SCSS",
+          essay: "I was asked to create a timeline component in order to display particular events related to a surveying job. It needed to display them in order based first on the completion of the event and second on the date created or completed. I enjoyed working out the gradient overlay for the events to disapear into when the timeline is scrolled and the scroll buttons showing or not based on the length of the timeline.",
+          url: "https://codepen.io/cassadyblake/pen/oNjWvZV",
+          image: "timeline_img.jpg"
+        },
       ]
     }
   },
@@ -119,35 +105,29 @@ export default {
   }
 }
 
-.button-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  button {
-    margin: 0 1rem;
-  }
-}
-
 .project-box {
   // border: solid 1px $black-olive;
   box-shadow: 1px 1px 10px rgb(163, 163, 163);
-  border-radius: 5px;
-  width: 25%;
-  min-width: 325px;
+  border-radius: 100%;
+  width: 250px;
+  height: 250px;
   position: relative;
   display: inline-flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  margin: 3%;
+  margin: 1%;
   opacity: 1;
   overflow: hidden;
+  transition: opacity 2s ease-in;
   
   .info-box {
+    opacity: 0;
     color: $black-olive;
-    padding: 1rem 1rem;
+    padding: 4rem 3rem;
     height: 100%;
     overflow: hidden;
+    z-index: 1;
+    transition: opacity .5s ease-in-out;
 
     h5 {
       margin-bottom: 0;
@@ -160,18 +140,26 @@ export default {
       color: $dark-salmon;
       font-size: 14px;
     }
-  }
-
-  .content-box {
-    height: 90%;
-
-    img {
-      width: 100%;
-      // border-bottom: solid 1px $black-olive-lighten;
+    button {
+      height: 35px;
     }
   }
 
+  img {
+    width: 100%;
+    position: absolute;
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+    // border-bottom: solid 1px $black-olive-lighten;
+  }
+
   &:hover {
+    img {
+      opacity: .03;
+    }
+    .info-box {
+      opacity: 1;
+    }
   }
 }
 

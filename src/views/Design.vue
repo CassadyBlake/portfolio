@@ -52,12 +52,15 @@
       </div>
     </div>
     </div>
-
-    <img
+    <image-load 
+      :className="category === 'packaging' ? 'main-image landscape' : 'main-image' "
+      :imageSrc="selectedImage"
+    />
+    <!-- <img
       :class="category === 'packaging' ? 'main-image landscape' : 'main-image' "
       :src="require(`@/assets/images/${selectedImage}`)"
       :alt="selectedImage"
-    />
+    /> -->
     <div class="twelve columns button-container">
       <button class="light flat circle" @click="selectImage('left')"><i class="material-icons">arrow_left</i></button>
       <button class="light flat circle" @click="selectImage('right')"><i class="material-icons">arrow_right</i></button>
@@ -114,9 +117,12 @@
   </div>
 </template>
 <script>
+import imageLoad from '../components/Image'
+
 export default {
   name: 'design',
   components: {
+    imageLoad
   },
   data() {
     return {
@@ -234,16 +240,6 @@ export default {
         left: 50%;
         height: 300%;
       }
-    }
-  }
-
-  .main-image {
-    margin-top: 15rem;
-    max-width: 400px;
-    width: 100%;
-
-    &.landscape {
-      max-width: 600px;
     }
   }
 
